@@ -1,0 +1,1025 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="031a0148-cc61-4ee5-bb8d-f08521df2632" name="@ip-10-130-163-20 2025-09-12 13:02:43" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2025-09-12T13:02:43.8691734+12:00" queuing="2025-09-12T13:02:43.8691735+12:00" start="2025-09-12T13:00:59.8691150+12:00" finish="2025-09-12T13:03:01.7917856+12:00" />
+  <TestSettings name="default" id="a1d14832-0c3e-46f6-9a1c-874eb9e26f5f">
+    <Deployment runDeploymentRoot="_ip-10-130-163-20_2025-09-12_13_02_43" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="98a66b53-cfd4-45a1-9b88-330e2dae841d" testId="ae893792-a79c-1dcf-3a86-6c6369b79bcb" testName="POrchAPI_Idempotency_201_Gives_201_For_Same_Idempotency_Combo" computerName="ip-10-130-163-20" duration="00:00:01.8465711" startTime="2025-09-12T13:02:51.4086119+12:00" endTime="2025-09-12T13:02:53.2602593+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="98a66b53-cfd4-45a1-9b88-330e2dae841d">
+      <Output>
+        <StdOut>[2025-09-12 13:02:51 INF] Starting Test Execution: POrchAPI_Idempotency_201_Gives_201_For_Same_Idempotency_Combo:[]
+[2025-09-12 13:02:53 INF] Response has PaymentId: 2b28916a-6ca1-4caa-9539-5fd005817cc2
+[2025-09-12 13:02:53 INF] Response has PaymentId: 2b28916a-6ca1-4caa-9539-5fd005817cc2
+[2025-09-12 13:02:53 INF] Finished Test Execution: POrchAPI_Idempotency_201_Gives_201_For_Same_Idempotency_Combo
+[2025-09-12 13:02:53 INF] ----------------------------------------------------------
+
+
+
+TestContext Messages:
+Given a POrch PaymentRequest is created
+-&gt; done: POrchApiIntegrationStepDefinitions.GivenAPOrchPaymentRequestIsCreated() (0.0s)
+And the Amount Field is 1.00
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheAcountFieldIs("1.00") (0.0s)
+And the Debit Account field is 389006059700502
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheDebitAccountFieldIs("389006059700502") (0.0s)
+And POrch API is called
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenPOrchApiIsCalled() (1.6s)
+And the request should return status code 201
+-&gt; done: POrchApiIntegrationStepDefinitions.ThenTheRequestShouldReturnStatusCode(201) (0.0s)
+And the Amount Field is 10.00
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheAcountFieldIs("10.00") (0.0s)
+When POrch API is called again
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenPOrchApiIsCalledAgain() (0.2s)
+Then the request should return status code 201
+-&gt; done: POrchApiIntegrationStepDefinitions.ThenTheRequestShouldReturnStatusCode(201) (0.0s)
+And the new response matches the original response
+-&gt; done: POrchApiIntegrationStepDefinitions.ThenTheNewResponseMatchesTheOriginalResponse() (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="4b6c8681-d3df-4d76-9f3b-b094eb29a46e" testId="fcd80163-53b7-17f4-dc1c-013a7d7bce82" testName="POrchTransfer_UltracsToUltracs_Negative_Frozen_Debit_Account" computerName="ip-10-130-163-20" duration="00:00:00.2189110" startTime="2025-09-12T13:03:01.4938445+12:00" endTime="2025-09-12T13:03:01.7196020+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4b6c8681-d3df-4d76-9f3b-b094eb29a46e">
+      <Output>
+        <StdOut>[2025-09-12 13:03:01 INF] Starting Test Execution: POrchTransfer_UltracsToUltracs_Negative_Frozen_Debit_Account:[]
+[2025-09-12 13:03:01 INF] Response has PaymentId: c98e761a-2387-437b-abec-6ca53a220c49
+[2025-09-12 13:03:01 INF] Finished Test Execution: POrchTransfer_UltracsToUltracs_Negative_Frozen_Debit_Account
+[2025-09-12 13:03:01 INF] ----------------------------------------------------------
+
+
+
+TestContext Messages:
+Given a Ultracs to Ultracs POrch TransferRequest is created
+-&gt; done: POrchApiIntegrationStepDefinitions.ConditionalPOrchTransferRequestIsCreated("Ultracs", "Ultracs") (0.0s)
+And the Debit Account field is 389009086607100
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheDebitAccountFieldIs("389009086607100") (0.0s)
+When POrch Transfer API is called
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenPOrchAPIIsCalled("Transfer") (0.2s)
+Then the request should return status code 409
+-&gt; done: POrchApiIntegrationStepDefinitions.ThenTheRequestShouldReturnStatusCode(409) (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="d047c606-bbc5-487e-b470-c36094cd6ded" testId="1fbd2d8b-0353-2b79-d9e5-5cf555f22056" testName="POrchAPI_InsufficientFunds_Debit_Account_Return_Error" computerName="ip-10-130-163-20" duration="00:00:00.4495056" startTime="2025-09-12T13:02:45.7603661+12:00" endTime="2025-09-12T13:02:46.2101864+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d047c606-bbc5-487e-b470-c36094cd6ded">
+      <Output>
+        <StdOut>[2025-09-12 13:02:45 INF] Starting Test Execution: POrchAPI_InsufficientFunds_Debit_Account_Return_Error:[]
+[2025-09-12 13:02:46 INF] Response has PaymentId: a93024c3-cdb4-4cf6-acff-882f5db60655
+[2025-09-12 13:02:46 INF] Finished Test Execution: POrchAPI_InsufficientFunds_Debit_Account_Return_Error
+[2025-09-12 13:02:46 INF] ----------------------------------------------------------
+
+
+
+TestContext Messages:
+Given a POrch PaymentRequest is created
+-&gt; done: POrchApiIntegrationStepDefinitions.GivenAPOrchPaymentRequestIsCreated() (0.0s)
+And the Amount Field is 1000000.00
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheAcountFieldIs("1000000.00") (0.0s)
+And the Debit Account field is 389006059700502
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheDebitAccountFieldIs("389006059700502") (0.0s)
+When POrch API is called
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenPOrchApiIsCalled() (0.4s)
+Then the request should return status code 409
+-&gt; done: POrchApiIntegrationStepDefinitions.ThenTheRequestShouldReturnStatusCode(409) (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="97c5e9ca-3e23-426c-89ea-398ccf2fe725" testId="ca92f0e9-de9f-e8e4-6bd1-d3fefcc645a7" testName="POrchTransfer_TMVtoTMV_Valid_Payer_Particulars_Return_Success (()+$*!;-/?:,201,)" computerName="ip-10-130-163-20" startTime="2025-09-12T13:02:53.2618571+12:00" endTime="2025-09-12T13:02:53.2619635+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="97c5e9ca-3e23-426c-89ea-398ccf2fe725">
+      <Output></Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="e48403c2-a94b-4260-b124-ef7ac11e89fc" testId="a8f2b7cb-df5d-f01c-88b8-01a443ce3ce5" testName="POrchTransfer_TMV_To_UltracsSavingsAcct_Successful" computerName="ip-10-130-163-20" duration="00:00:00.3605165" startTime="2025-09-12T13:02:53.9059280+12:00" endTime="2025-09-12T13:02:54.2666407+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e48403c2-a94b-4260-b124-ef7ac11e89fc">
+      <Output>
+        <StdOut>[2025-09-12 13:02:53 INF] Starting Test Execution: POrchTransfer_TMV_To_UltracsSavingsAcct_successful:[]
+[2025-09-12 13:02:54 INF] Response has PaymentId: bb76904d-8e11-4d9c-a921-eeb19fbacc52
+[2025-09-12 13:02:54 INF] Finished Test Execution: POrchTransfer_TMV_To_UltracsSavingsAcct_successful
+[2025-09-12 13:02:54 INF] ----------------------------------------------------------
+
+
+
+TestContext Messages:
+Given a TMV to UltracsSavingsAcct POrch TransferRequest is created
+-&gt; done: POrchApiIntegrationStepDefinitions.ConditionalPOrchTransferRequestIsCreated("TMV", "UltracsSavingsAcct") (0.0s)
+And the Debit Account field is 389023066848550
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheDebitAccountFieldIs("389023066848550") (0.0s)
+And the credit Account is 389023045175301
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheCreditAccountIs("389023045175301") (0.0s)
+And the debtor AccountId is nc_4202e682-c9be-4f6b-8727-142a48f750dd
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenDebtorAccountIdIs("nc_4202e682-c9be-...") (0.0s)
+And the creditor AccountId is lc_7e5bb336-19b0-4df0-a541-37819d4fc718
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenCreditorAccountIdIs("lc_7e5bb336-19b0-...") (0.0s)
+When POrch Transfer API is called
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenPOrchAPIIsCalled("Transfer") (0.4s)
+Then the request should return status code 201
+-&gt; done: POrchApiIntegrationStepDefinitions.ThenTheRequestShouldReturnStatusCode(201) (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="9325858b-0356-4a7a-b7f1-a57db2885634" testId="df905d01-0908-47bf-6fc8-16d89da66b82" testName="POrchAPI_To_External_Account_Successful" computerName="ip-10-130-163-20" duration="00:00:01.9176260" startTime="2025-09-12T13:02:43.8410230+12:00" endTime="2025-09-12T13:02:45.7589410+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9325858b-0356-4a7a-b7f1-a57db2885634">
+      <Output>
+        <StdOut>[2025-09-12 13:02:43 INF] Starting Test Execution: POrchAPI_To_External_Account_successful:[]
+[2025-09-12 13:02:45 INF] Response has PaymentId: 8f312d49-3074-4431-a052-16c349f52cfe
+[2025-09-12 13:02:45 INF] Finished Test Execution: POrchAPI_To_External_Account_successful
+[2025-09-12 13:02:45 INF] ----------------------------------------------------------
+
+
+
+TestContext Messages:
+Given a POrch PaymentRequest is created
+-&gt; done: POrchApiIntegrationStepDefinitions.GivenAPOrchPaymentRequestIsCreated() (0.0s)
+And the credit Account is 123602019665715
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheCreditAccountIs("123602019665715") (0.0s)
+When POrch API is called
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenPOrchApiIsCalled() (1.9s)
+Then the request should return status code 201
+-&gt; done: POrchApiIntegrationStepDefinitions.ThenTheRequestShouldReturnStatusCode(201) (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="5df5235d-e60c-407c-8386-55e59444781e" testId="b6ac546a-4475-a009-6705-0731f0dc9d44" testName="POrchTransfer_UltracsToTMV_Negative_Insufficient_Funds" computerName="ip-10-130-163-20" startTime="2025-09-12T13:02:57.6409673+12:00" endTime="2025-09-12T13:02:57.6410945+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5df5235d-e60c-407c-8386-55e59444781e">
+      <Output></Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="bb282fa5-5196-4864-9c06-4f7fbaea73b2" testId="0dd20642-843d-516c-fb3b-5847db30e088" testName="POrchAPI_To_KBAccount_Successful" computerName="ip-10-130-163-20" duration="00:00:03.1686451" startTime="2025-09-12T13:01:00.4587491+12:00" endTime="2025-09-12T13:02:43.8281517+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bb282fa5-5196-4864-9c06-4f7fbaea73b2">
+      <Output>
+        <StdOut>-&gt; Loading plugin /codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Reqnroll.Microsoft.Extensions.DependencyInjection.ReqnrollPlugin.dll
+-&gt; Loading plugin /codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Reqnroll.MSTest.ReqnrollPlugin.dll
+-&gt; Loading plugin /codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll
+-&gt; Using default config
+Test environment integrate
+[2025-09-12 13:02:40 INF] Starting Test Execution: POrchAPI_To_KBAccount_successful:[]
+[2025-09-12 13:02:43 INF] Response has PaymentId: 15062ffc-88e4-4511-a9b3-e696d79a34b5
+[2025-09-12 13:02:43 INF] Finished Test Execution: POrchAPI_To_KBAccount_successful
+[2025-09-12 13:02:43 INF] ----------------------------------------------------------
+
+
+
+TestContext Messages:
+Given a POrch PaymentRequest is created
+-&gt; done: POrchApiIntegrationStepDefinitions.GivenAPOrchPaymentRequestIsCreated() (0.0s)
+And the credit Account is 389024000135900
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheCreditAccountIs("389024000135900") (0.0s)
+When POrch API is called
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenPOrchApiIsCalled() (2.8s)
+Then the request should return status code 201
+-&gt; done: POrchApiIntegrationStepDefinitions.ThenTheRequestShouldReturnStatusCode(201) (0.1s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="7591dde0-4a1b-4960-8261-a476149509fc" testId="de87c021-6a7d-a6aa-4a08-cdd06e5ab0df" testName="POrchAPI_Closed_Debit_Account_Return_Error" computerName="ip-10-130-163-20" duration="00:00:02.2514047" startTime="2025-09-12T13:02:46.2102868+12:00" endTime="2025-09-12T13:02:48.4619507+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7591dde0-4a1b-4960-8261-a476149509fc">
+      <Output>
+        <StdOut>[2025-09-12 13:02:46 INF] Starting Test Execution: POrchAPI_Closed_Debit_Account_Return_Error:[]
+[2025-09-12 13:02:48 INF] Response has PaymentId: 5e4f1e62-15f7-4b8c-9dc7-ff734c413cfd
+[2025-09-12 13:02:48 INF] Finished Test Execution: POrchAPI_Closed_Debit_Account_Return_Error
+[2025-09-12 13:02:48 INF] ----------------------------------------------------------
+
+
+
+TestContext Messages:
+Given a POrch PaymentRequest is created
+-&gt; done: POrchApiIntegrationStepDefinitions.GivenAPOrchPaymentRequestIsCreated() (0.0s)
+And the Debit Account field is 389006063973800
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheDebitAccountFieldIs("389006063973800") (0.0s)
+When POrch API is called
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenPOrchApiIsCalled() (2.2s)
+Then the request should return status code 409
+-&gt; done: POrchApiIntegrationStepDefinitions.ThenTheRequestShouldReturnStatusCode(409) (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="0ad130b9-d79e-434c-85e6-fc79600499a1" testId="d61bdf1c-4a88-fcc6-9106-33394601bf48" testName="POrchAPI_Frozen_Debit_Account_Return_Error" computerName="ip-10-130-163-20" duration="00:00:00.3571727" startTime="2025-09-12T13:02:48.8734965+12:00" endTime="2025-09-12T13:02:49.2309794+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0ad130b9-d79e-434c-85e6-fc79600499a1">
+      <Output>
+        <StdOut>[2025-09-12 13:02:48 INF] Starting Test Execution: POrchAPI_Frozen_Debit_Account_Return_Error:[]
+[2025-09-12 13:02:49 INF] Response has PaymentId: 611580ad-45b2-472f-8c38-a123c1938335
+[2025-09-12 13:02:49 INF] Finished Test Execution: POrchAPI_Frozen_Debit_Account_Return_Error
+[2025-09-12 13:02:49 INF] ----------------------------------------------------------
+
+
+
+TestContext Messages:
+Given a POrch PaymentRequest is created
+-&gt; done: POrchApiIntegrationStepDefinitions.GivenAPOrchPaymentRequestIsCreated() (0.0s)
+And the Debit Account field is 389009086607100
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheDebitAccountFieldIs("389009086607100") (0.0s)
+When POrch API is called
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenPOrchApiIsCalled() (0.4s)
+Then the request should return status code 409
+-&gt; done: POrchApiIntegrationStepDefinitions.ThenTheRequestShouldReturnStatusCode(409) (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="6dfcc872-ccd4-426a-b00e-647ce8d7e84c" testId="8ad1d658-4f1e-9ab6-9106-02b856550245" testName="POrchTransfer_Ultracs_To_Ultracs_Successful" computerName="ip-10-130-163-20" duration="00:00:00.2098755" startTime="2025-09-12T13:02:57.6416689+12:00" endTime="2025-09-12T13:02:57.8522173+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6dfcc872-ccd4-426a-b00e-647ce8d7e84c">
+      <Output>
+        <StdOut>[2025-09-12 13:02:57 INF] Starting Test Execution: POrchTransfer_Ultracs_To_Ultracs_successful:[]
+[2025-09-12 13:02:57 INF] Response has PaymentId: a997fa79-8e2c-4676-8e07-70240e87d0af
+[2025-09-12 13:02:57 INF] Finished Test Execution: POrchTransfer_Ultracs_To_Ultracs_successful
+[2025-09-12 13:02:57 INF] ----------------------------------------------------------
+
+
+
+TestContext Messages:
+Given a Ultracs to Ultracs POrch TransferRequest is created
+-&gt; done: POrchApiIntegrationStepDefinitions.ConditionalPOrchTransferRequestIsCreated("Ultracs", "Ultracs") (0.0s)
+And the Debit Account field is 389023066848503
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheDebitAccountFieldIs("389023066848503") (0.0s)
+And the credit Account is 389023045175301
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheCreditAccountIs("389023045175301") (0.0s)
+When POrch Transfer API is called
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenPOrchAPIIsCalled("Transfer") (0.2s)
+Then the request should return status code 201
+-&gt; done: POrchApiIntegrationStepDefinitions.ThenTheRequestShouldReturnStatusCode(201) (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c9e5004b-fd0f-475c-82dc-f4ea23a7085c" testId="262cc163-403a-3427-10c7-fe659a3b5236" testName="POrchAPI_FraudReject_Credit_Account_Returns_Error" computerName="ip-10-130-163-20" duration="00:00:00.1961445" startTime="2025-09-12T13:02:49.2311735+12:00" endTime="2025-09-12T13:02:49.4275181+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c9e5004b-fd0f-475c-82dc-f4ea23a7085c">
+      <Output>
+        <StdOut>[2025-09-12 13:02:49 INF] Starting Test Execution: POrchAPI_FraudReject_Credit_Account_Returns_Error:[]
+[2025-09-12 13:02:49 INF] Response has PaymentId: 895d7232-0ff2-4359-8fda-340c9aeee6b5
+[2025-09-12 13:02:49 INF] Finished Test Execution: POrchAPI_FraudReject_Credit_Account_Returns_Error
+[2025-09-12 13:02:49 INF] ----------------------------------------------------------
+
+
+
+TestContext Messages:
+Given a POrch PaymentRequest is created
+-&gt; done: POrchApiIntegrationStepDefinitions.GivenAPOrchPaymentRequestIsCreated() (0.0s)
+And the Amount Field is 501.00
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheAcountFieldIs("501.00") (0.0s)
+And the Credit Account field is 389008057361302
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheCreditAccountFieldIs("389008057361302") (0.0s)
+When POrch API is called
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenPOrchApiIsCalled() (0.2s)
+Then the request should return status code 409
+-&gt; done: POrchApiIntegrationStepDefinitions.ThenTheRequestShouldReturnStatusCode(409) (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="6f4636cd-f078-49e2-82ea-b16817a9f477" testId="9eefd3b9-872e-d362-a565-ad2c08f87bc3" testName="POrchTransfer_TMV_To_Ultracs_Valid_Payee_Particulars_Return_Success (()+$*!;-/?,201,)" computerName="ip-10-130-163-20" duration="00:00:00.4809371" startTime="2025-09-12T13:02:54.7067141+12:00" endTime="2025-09-12T13:02:55.1906762+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6f4636cd-f078-49e2-82ea-b16817a9f477">
+      <Output>
+        <StdOut>[2025-09-12 13:02:54 INF] Starting Test Execution: POrchTransfer_TMV_To_Ultracs_Valid_Payee_Particulars_Return_Success:["[CreditorParticularsValue, ()+$*!;-/?]","[StatusCode, 201]"]
+[2025-09-12 13:02:55 INF] Response has PaymentId: b001ed0f-6dfd-4c23-a9f3-6b018d21518b
+[2025-09-12 13:02:55 INF] Finished Test Execution: POrchTransfer_TMV_To_Ultracs_Valid_Payee_Particulars_Return_Success
+[2025-09-12 13:02:55 INF] ----------------------------------------------------------
+
+
+
+TestContext Messages:
+Given a TMV to Ultracs POrch TransferRequest is created
+-&gt; done: POrchApiIntegrationStepDefinitions.ConditionalPOrchTransferRequestIsCreated("TMV", "Ultracs") (0.0s)
+And the Debit Account field is 389023066848550
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheDebitAccountFieldIs("389023066848550") (0.0s)
+And the credit Account is 389023066848500
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheCreditAccountIs("389023066848500") (0.0s)
+And the debtor AccountId is nc_4202e682-c9be-4f6b-8727-142a48f750dd
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenDebtorAccountIdIs("nc_4202e682-c9be-...") (0.0s)
+And the creditor AccountId is lc_4984039f-adc6-4158-9c1e-3bab35f427a4
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenCreditorAccountIdIs("lc_4984039f-adc6-...") (0.0s)
+And the Transfer Creditor particulars is ()+$*!;-/?
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheCreditorParticularsIs("Transfer", "()+$*!;-/?") (0.0s)
+When POrch Transfer API is called
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenPOrchAPIIsCalled("Transfer") (0.5s)
+Then the request should return status code 201
+-&gt; done: POrchApiIntegrationStepDefinitions.ThenTheRequestShouldReturnStatusCode(201) (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="eaf72c2c-9277-4e1d-84a7-5fc4f7530b90" testId="be08730d-7d0f-e8c5-0750-d5a826172b1b" testName="POrchTransfer_UltracsToTMV_Negative_Closed_Debit_Account" computerName="ip-10-130-163-20" startTime="2025-09-12T13:02:57.6411889+12:00" endTime="2025-09-12T13:02:57.6416000+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="eaf72c2c-9277-4e1d-84a7-5fc4f7530b90">
+      <Output></Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="f7ebdd6d-2299-4a2c-a72c-228d2b471f07" testId="fd188a01-9c12-34d3-95c2-148974b45edb" testName="POrchTransfer_UltracsSavingsAcct_To_TMV_Successful" computerName="ip-10-130-163-20" duration="00:00:00.4103471" startTime="2025-09-12T13:02:56.1427858+12:00" endTime="2025-09-12T13:02:56.5533423+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f7ebdd6d-2299-4a2c-a72c-228d2b471f07">
+      <Output>
+        <StdOut>[2025-09-12 13:02:56 INF] Starting Test Execution: POrchTransfer_UltracsSavingsAcct_To_TMV_successful:[]
+[2025-09-12 13:02:56 INF] Response has PaymentId: 36618411-55e2-443a-8f41-738108eaad89
+[2025-09-12 13:02:56 INF] Finished Test Execution: POrchTransfer_UltracsSavingsAcct_To_TMV_successful
+[2025-09-12 13:02:56 INF] ----------------------------------------------------------
+
+
+
+TestContext Messages:
+Given a Ultracs to TMV POrch TransferRequest is created
+-&gt; done: POrchApiIntegrationStepDefinitions.ConditionalPOrchTransferRequestIsCreated("Ultracs", "TMV") (0.0s)
+And the Debit Account field is 389023045175301
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheDebitAccountFieldIs("389023045175301") (0.0s)
+And the credit Account is 389023066848550
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheCreditAccountIs("389023066848550") (0.0s)
+And the debtor AccountId is lc_7e5bb336-19b0-4df0-a541-37819d4fc718
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenDebtorAccountIdIs("lc_7e5bb336-19b0-...") (0.0s)
+And the creditor AccountId is nc_4202e682-c9be-4f6b-8727-142a48f750dd
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenCreditorAccountIdIs("nc_4202e682-c9be-...") (0.0s)
+When POrch Transfer API is called
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenPOrchAPIIsCalled("Transfer") (0.4s)
+Then the request should return status code 201
+-&gt; done: POrchApiIntegrationStepDefinitions.ThenTheRequestShouldReturnStatusCode(201) (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="861764ed-e06e-4b45-9fb9-50840e2ed4a4" testId="71b8b00c-42ac-9de1-10b5-3167a9ec18c5" testName="POrchAPI_Idempotency_409_Gives_201_For_Same_Idempotency_Combo" computerName="ip-10-130-163-20" duration="00:00:01.9805547" startTime="2025-09-12T13:02:49.4275984+12:00" endTime="2025-09-12T13:02:51.4084163+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="861764ed-e06e-4b45-9fb9-50840e2ed4a4">
+      <Output>
+        <StdOut>[2025-09-12 13:02:49 INF] Starting Test Execution: POrchAPI_Idempotency_409_Gives_201_For_Same_Idempotency_Combo:[]
+[2025-09-12 13:02:49 INF] Response has PaymentId: 8b48e61d-8ce5-4176-8a2d-85a76bf0bb62
+[2025-09-12 13:02:51 INF] Response has PaymentId: 0afce62b-8767-4233-b3be-2f67a546154c
+[2025-09-12 13:02:51 INF] Finished Test Execution: POrchAPI_Idempotency_409_Gives_201_For_Same_Idempotency_Combo
+[2025-09-12 13:02:51 INF] ----------------------------------------------------------
+
+
+
+TestContext Messages:
+Given a POrch PaymentRequest is created
+-&gt; done: POrchApiIntegrationStepDefinitions.GivenAPOrchPaymentRequestIsCreated() (0.0s)
+And the Amount Field is 1000000.00
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheAcountFieldIs("1000000.00") (0.0s)
+And the Debit Account field is 389006059700502
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheDebitAccountFieldIs("389006059700502") (0.0s)
+And POrch API is called
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenPOrchApiIsCalled() (0.4s)
+And the request should return status code 409
+-&gt; done: POrchApiIntegrationStepDefinitions.ThenTheRequestShouldReturnStatusCode(409) (0.0s)
+And the Amount Field is 0.01
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheAcountFieldIs("0.01") (0.0s)
+When POrch API is called again
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenPOrchApiIsCalledAgain() (1.6s)
+Then the request should return status code 201
+-&gt; done: POrchApiIntegrationStepDefinitions.ThenTheRequestShouldReturnStatusCode(201) (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="4674625c-1346-4888-8e06-d9928716e551" testId="deb34f48-dad7-0353-9e43-b1c5cc139f14" testName="POrchTransfer_Ultracs_To_Ultracs_Negative_Insufficient_Funds" computerName="ip-10-130-163-20" duration="00:00:00.2895301" startTime="2025-09-12T13:02:57.8522821+12:00" endTime="2025-09-12T13:02:58.1420271+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4674625c-1346-4888-8e06-d9928716e551">
+      <Output>
+        <StdOut>[2025-09-12 13:02:57 INF] Starting Test Execution: POrchTransfer_Ultracs_to_Ultracs_Negative_Insufficient_Funds:[]
+[2025-09-12 13:02:58 INF] Response has PaymentId: fa1b1b13-d835-4219-8b64-3a2a54053f66
+[2025-09-12 13:02:58 INF] Finished Test Execution: POrchTransfer_Ultracs_to_Ultracs_Negative_Insufficient_Funds
+[2025-09-12 13:02:58 INF] ----------------------------------------------------------
+
+
+
+TestContext Messages:
+Given a Ultracs to Ultracs POrch TransferRequest is created
+-&gt; done: POrchApiIntegrationStepDefinitions.ConditionalPOrchTransferRequestIsCreated("Ultracs", "Ultracs") (0.0s)
+And the Amount Field is 9999999999.99
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheAcountFieldIs("9999999999.99") (0.0s)
+When POrch Transfer API is called
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenPOrchAPIIsCalled("Transfer") (0.3s)
+Then the request should return status code 409
+-&gt; done: POrchApiIntegrationStepDefinitions.ThenTheRequestShouldReturnStatusCode(409) (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="685b082d-25a7-46fb-a957-907452351d80" testId="6be081f2-c6e7-d412-39eb-fe90568f52d3" testName="POrchAPI_Closed_Credit_Account_Return_Error" computerName="ip-10-130-163-20" duration="00:00:00.4110752" startTime="2025-09-12T13:02:48.4620795+12:00" endTime="2025-09-12T13:02:48.8734080+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="685b082d-25a7-46fb-a957-907452351d80">
+      <Output>
+        <StdOut>[2025-09-12 13:02:48 INF] Starting Test Execution: POrchAPI_Closed_Credit_Account_Return_Error:[]
+[2025-09-12 13:02:48 INF] Response has PaymentId: 10d1ab67-8897-4e9d-8c28-9ef96355fd71
+[2025-09-12 13:02:48 INF] Finished Test Execution: POrchAPI_Closed_Credit_Account_Return_Error
+[2025-09-12 13:02:48 INF] ----------------------------------------------------------
+
+
+
+TestContext Messages:
+Given a POrch PaymentRequest is created
+-&gt; done: POrchApiIntegrationStepDefinitions.GivenAPOrchPaymentRequestIsCreated() (0.0s)
+And the Credit Account field is 389006063973800
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheCreditAccountFieldIs("389006063973800") (0.0s)
+When POrch API is called
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenPOrchApiIsCalled() (0.4s)
+Then the request should return status code 409
+-&gt; done: POrchApiIntegrationStepDefinitions.ThenTheRequestShouldReturnStatusCode(409) (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="42b593c8-e380-477b-8e1d-62d333590559" testId="ce6cf9d1-cd10-ef87-b596-769a97a0553b" testName="POrchTransfer_Ultracs_To_Ultracs_Valid_Payer_Particulars_Return_Success (()+$*!;-/?:,201,)" computerName="ip-10-130-163-20" duration="00:00:01.5894993" startTime="2025-09-12T13:02:58.1420967+12:00" endTime="2025-09-12T13:02:59.7318467+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="42b593c8-e380-477b-8e1d-62d333590559">
+      <Output>
+        <StdOut>[2025-09-12 13:02:58 INF] Starting Test Execution: POrchTransfer_Ultracs_to_Ultracs_Valid_Payer_Particulars_Return_Success:["[DebtorParticularsValue, ()+$*!;-/?:]","[StatusCode, 201]"]
+[2025-09-12 13:02:59 INF] Response has PaymentId: 80535435-a2e3-497f-85ba-71e8811b0536
+[2025-09-12 13:02:59 INF] Finished Test Execution: POrchTransfer_Ultracs_to_Ultracs_Valid_Payer_Particulars_Return_Success
+[2025-09-12 13:02:59 INF] ----------------------------------------------------------
+
+
+
+TestContext Messages:
+Given a Ultracs to Ultracs POrch TransferRequest is created
+-&gt; done: POrchApiIntegrationStepDefinitions.ConditionalPOrchTransferRequestIsCreated("Ultracs", "Ultracs") (0.0s)
+And the Transfer Debtor particulars is ()+$*!;-/?:
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheDebtorParticularsIs("Transfer", "()+$*!;-/?:") (0.0s)
+When POrch Transfer API is called
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenPOrchAPIIsCalled("Transfer") (1.6s)
+Then the request should return status code 201
+-&gt; done: POrchApiIntegrationStepDefinitions.ThenTheRequestShouldReturnStatusCode(201) (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="727e35b3-d350-4397-92e3-0c3409871b74" testId="e232b2a9-e115-39d2-3465-85916a215809" testName="POrchTransfer_Ultracs_To_Ultracs_Valid_Payer_Particulars_Return_Success (=@#_%,.,201,)" computerName="ip-10-130-163-20" duration="00:00:01.7614093" startTime="2025-09-12T13:02:59.7319718+12:00" endTime="2025-09-12T13:03:01.4937097+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="727e35b3-d350-4397-92e3-0c3409871b74">
+      <Output>
+        <StdOut>[2025-09-12 13:02:59 INF] Starting Test Execution: POrchTransfer_Ultracs_to_Ultracs_Valid_Payer_Particulars_Return_Success:["[DebtorParticularsValue, =@#_%,.]","[StatusCode, 201]"]
+[2025-09-12 13:03:01 INF] Response has PaymentId: 7b2ad66a-5fc1-45ee-952c-2b98df95b2ec
+[2025-09-12 13:03:01 INF] Finished Test Execution: POrchTransfer_Ultracs_to_Ultracs_Valid_Payer_Particulars_Return_Success
+[2025-09-12 13:03:01 INF] ----------------------------------------------------------
+
+
+
+TestContext Messages:
+Given a Ultracs to Ultracs POrch TransferRequest is created
+-&gt; done: POrchApiIntegrationStepDefinitions.ConditionalPOrchTransferRequestIsCreated("Ultracs", "Ultracs") (0.0s)
+And the Transfer Debtor particulars is =@#_%,.
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheDebtorParticularsIs("Transfer", "=@#_%,.") (0.0s)
+When POrch Transfer API is called
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenPOrchAPIIsCalled("Transfer") (1.8s)
+Then the request should return status code 201
+-&gt; done: POrchApiIntegrationStepDefinitions.ThenTheRequestShouldReturnStatusCode(201) (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="361de2f3-cd6d-477e-8527-40c8ec7b77fb" testId="ae384ae0-02b3-0dd3-fd2e-842717ea14b0" testName="POrchTransfer_TMV_To_UltracsInvestmentAcct_Successful" computerName="ip-10-130-163-20" duration="00:00:00.4396434" startTime="2025-09-12T13:02:54.2667341+12:00" endTime="2025-09-12T13:02:54.7065599+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="361de2f3-cd6d-477e-8527-40c8ec7b77fb">
+      <Output>
+        <StdOut>[2025-09-12 13:02:54 INF] Starting Test Execution: POrchTransfer_TMV_To_UltracsInvestmentAcct_successful:[]
+[2025-09-12 13:02:54 INF] Response has PaymentId: 155e6815-4351-4fa1-b24f-d91bdea9d7c9
+[2025-09-12 13:02:54 INF] Finished Test Execution: POrchTransfer_TMV_To_UltracsInvestmentAcct_successful
+[2025-09-12 13:02:54 INF] ----------------------------------------------------------
+
+
+
+TestContext Messages:
+Given a TMV to UltracsInvestmentAcct POrch TransferRequest is created
+-&gt; done: POrchApiIntegrationStepDefinitions.ConditionalPOrchTransferRequestIsCreated("TMV", "UltracsInvestment...") (0.0s)
+And the Debit Account field is 389023066848550
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheDebitAccountFieldIs("389023066848550") (0.0s)
+And the credit Account is 389018081301905
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheCreditAccountIs("389018081301905") (0.0s)
+And the debtor AccountId is nc_4202e682-c9be-4f6b-8727-142a48f750dd
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenDebtorAccountIdIs("nc_4202e682-c9be-...") (0.0s)
+And the creditor AccountId is lc_76b61c57-9758-4f9f-a36e-b0d783a44581
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenCreditorAccountIdIs("lc_76b61c57-9758-...") (0.0s)
+When POrch Transfer API is called
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenPOrchAPIIsCalled("Transfer") (0.4s)
+Then the request should return status code 201
+-&gt; done: POrchApiIntegrationStepDefinitions.ThenTheRequestShouldReturnStatusCode(201) (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="32a90738-b888-4192-bf54-9574e55b107b" testId="f2a4c671-5cec-b2e6-29b5-d1eda1e702fa" testName="POrchTransfer_Tmv_To_Tmv_Successful" computerName="ip-10-130-163-20" startTime="2025-09-12T13:02:53.2607206+12:00" endTime="2025-09-12T13:02:53.2615950+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="32a90738-b888-4192-bf54-9574e55b107b">
+      <Output></Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="bb4a1578-4203-4dcf-93ba-219f31b571a9" testId="1561bc0d-b356-eef7-41a1-5ccc6added08" testName="POrchTransfer_UltracsToTMV_Negative_Frozen_Debit_Account" computerName="ip-10-130-163-20" startTime="2025-09-12T13:02:57.6411195+12:00" endTime="2025-09-12T13:02:57.6411704+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bb4a1578-4203-4dcf-93ba-219f31b571a9">
+      <Output></Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c8d720af-12af-4109-9334-ff83570fc09d" testId="0337aea6-c604-b00d-198c-0c215a080436" testName="POrchTransfer_TMV_To_UltracsTransactionAcct_Successful" computerName="ip-10-130-163-20" duration="00:00:00.6428155" startTime="2025-09-12T13:02:53.2622205+12:00" endTime="2025-09-12T13:02:53.9058329+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c8d720af-12af-4109-9334-ff83570fc09d">
+      <Output>
+        <StdOut>[2025-09-12 13:02:53 INF] Starting Test Execution: POrchTransfer_TMV_To_UltracsTransactionAcct_successful:[]
+[2025-09-12 13:02:53 INF] Response has PaymentId: 284cc2ec-e7a0-48e4-bcac-8a975587ab10
+[2025-09-12 13:02:53 INF] Finished Test Execution: POrchTransfer_TMV_To_UltracsTransactionAcct_successful
+[2025-09-12 13:02:53 INF] ----------------------------------------------------------
+
+
+
+TestContext Messages:
+Given a TMV to Ultracs POrch TransferRequest is created
+-&gt; done: POrchApiIntegrationStepDefinitions.ConditionalPOrchTransferRequestIsCreated("TMV", "Ultracs") (0.0s)
+And the Debit Account field is 389023066848550
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheDebitAccountFieldIs("389023066848550") (0.0s)
+And the credit Account is 389023066848500
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheCreditAccountIs("389023066848500") (0.0s)
+And the debtor AccountId is nc_4202e682-c9be-4f6b-8727-142a48f750dd
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenDebtorAccountIdIs("nc_4202e682-c9be-...") (0.0s)
+And the creditor AccountId is lc_4984039f-adc6-4158-9c1e-3bab35f427a4
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenCreditorAccountIdIs("lc_4984039f-adc6-...") (0.0s)
+When POrch Transfer API is called
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenPOrchAPIIsCalled("Transfer") (0.6s)
+Then the request should return status code 201
+-&gt; done: POrchApiIntegrationStepDefinitions.ThenTheRequestShouldReturnStatusCode(201) (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="0dc2f01f-de22-41db-932c-58d99629808d" testId="e338ed8f-6e41-dc55-a16e-f4bd75754932" testName="POrchTransfer_TMVtoTMV_Valid_Payer_Particulars_Return_Success (=@#_%,.,201,)" computerName="ip-10-130-163-20" startTime="2025-09-12T13:02:53.2620013+12:00" endTime="2025-09-12T13:02:53.2621811+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0dc2f01f-de22-41db-932c-58d99629808d">
+      <Output></Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="227bab17-96af-481f-a3ab-32adc1b6f86b" testId="de1cab8b-aec2-cf38-8e18-19b4e822e8a0" testName="POrchTransfer_UltracsTransactionAcct_To_TMV_Successful" computerName="ip-10-130-163-20" duration="00:00:00.5553110" startTime="2025-09-12T13:02:55.5867492+12:00" endTime="2025-09-12T13:02:56.1426958+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="227bab17-96af-481f-a3ab-32adc1b6f86b">
+      <Output>
+        <StdOut>[2025-09-12 13:02:55 INF] Starting Test Execution: POrchTransfer_UltracsTransactionAcct_To_TMV_successful:[]
+[2025-09-12 13:02:56 INF] Response has PaymentId: 06f9fc6e-effa-4e14-af2e-19c32e56aef3
+[2025-09-12 13:02:56 INF] Finished Test Execution: POrchTransfer_UltracsTransactionAcct_To_TMV_successful
+[2025-09-12 13:02:56 INF] ----------------------------------------------------------
+
+
+
+TestContext Messages:
+Given a Ultracs to TMV POrch TransferRequest is created
+-&gt; done: POrchApiIntegrationStepDefinitions.ConditionalPOrchTransferRequestIsCreated("Ultracs", "TMV") (0.0s)
+And the Debit Account field is 389023066848503
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheDebitAccountFieldIs("389023066848503") (0.0s)
+And the credit Account is 389023066848550
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheCreditAccountIs("389023066848550") (0.0s)
+And the debtor AccountId is lc_ba3a2de9-8b8c-4956-9949-9e7ff20e5f4a
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenDebtorAccountIdIs("lc_ba3a2de9-8b8c-...") (0.0s)
+And the creditor AccountId is nc_4202e682-c9be-4f6b-8727-142a48f750dd
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenCreditorAccountIdIs("nc_4202e682-c9be-...") (0.0s)
+When POrch Transfer API is called
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenPOrchAPIIsCalled("Transfer") (0.6s)
+Then the request should return status code 201
+-&gt; done: POrchApiIntegrationStepDefinitions.ThenTheRequestShouldReturnStatusCode(201) (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="d0b3e28a-0f39-4f6d-bec0-094be17e089c" testId="3e40ea4d-99dd-dad0-2563-a5a76f06ba83" testName="POrchTransfer_TMV_To_Ultracs_Valid_Payee_Particulars_Return_Success (=@#_:%,.,201,)" computerName="ip-10-130-163-20" duration="00:00:00.3950259" startTime="2025-09-12T13:02:55.1907620+12:00" endTime="2025-09-12T13:02:55.5860294+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d0b3e28a-0f39-4f6d-bec0-094be17e089c">
+      <Output>
+        <StdOut>[2025-09-12 13:02:55 INF] Starting Test Execution: POrchTransfer_TMV_To_Ultracs_Valid_Payee_Particulars_Return_Success:["[CreditorParticularsValue, =@#_:%,.]","[StatusCode, 201]"]
+[2025-09-12 13:02:55 INF] Response has PaymentId: 119a09f6-767b-48c4-ae1c-61b8b08e20ec
+[2025-09-12 13:02:55 INF] Finished Test Execution: POrchTransfer_TMV_To_Ultracs_Valid_Payee_Particulars_Return_Success
+[2025-09-12 13:02:55 INF] ----------------------------------------------------------
+
+
+
+TestContext Messages:
+Given a TMV to Ultracs POrch TransferRequest is created
+-&gt; done: POrchApiIntegrationStepDefinitions.ConditionalPOrchTransferRequestIsCreated("TMV", "Ultracs") (0.0s)
+And the Debit Account field is 389023066848550
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheDebitAccountFieldIs("389023066848550") (0.0s)
+And the credit Account is 389023066848500
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheCreditAccountIs("389023066848500") (0.0s)
+And the debtor AccountId is nc_4202e682-c9be-4f6b-8727-142a48f750dd
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenDebtorAccountIdIs("nc_4202e682-c9be-...") (0.0s)
+And the creditor AccountId is lc_4984039f-adc6-4158-9c1e-3bab35f427a4
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenCreditorAccountIdIs("lc_4984039f-adc6-...") (0.0s)
+And the Transfer Creditor particulars is =@#_:%,.
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheCreditorParticularsIs("Transfer", "=@#_:%,.") (0.0s)
+When POrch Transfer API is called
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenPOrchAPIIsCalled("Transfer") (0.4s)
+Then the request should return status code 201
+-&gt; done: POrchApiIntegrationStepDefinitions.ThenTheRequestShouldReturnStatusCode(201) (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="ba573430-29a2-49a3-9351-5bdc0a97eb28" testId="862edd37-0ba8-d76e-e795-15ba25176135" testName="POrchTransfer_TMVtoTMV_Negative_ADPS_Response_409" computerName="ip-10-130-163-20" startTime="2025-09-12T13:02:53.2616727+12:00" endTime="2025-09-12T13:02:53.2618133+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ba573430-29a2-49a3-9351-5bdc0a97eb28">
+      <Output></Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="aa1e9ab3-d715-41e0-a5c8-1d5829bf3d25" testId="98cabea3-7ff9-360f-8ba2-f8a8b55ea067" testName="POrchTransfer_UltracsInvestmentAcct_To_TMV_Successful" computerName="ip-10-130-163-20" duration="00:00:00.4193629" startTime="2025-09-12T13:02:56.5534091+12:00" endTime="2025-09-12T13:02:56.9729439+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="aa1e9ab3-d715-41e0-a5c8-1d5829bf3d25">
+      <Output>
+        <StdOut>[2025-09-12 13:02:56 INF] Starting Test Execution: POrchTransfer_UltracsInvestmentAcct_To_TMV_successful:[]
+[2025-09-12 13:02:56 INF] Response has PaymentId: aa36fc5f-8b3f-4062-ad58-e880e29d019e
+[2025-09-12 13:02:56 INF] Finished Test Execution: POrchTransfer_UltracsInvestmentAcct_To_TMV_successful
+[2025-09-12 13:02:56 INF] ----------------------------------------------------------
+
+
+
+TestContext Messages:
+Given a Ultracs to TMV POrch TransferRequest is created
+-&gt; done: POrchApiIntegrationStepDefinitions.ConditionalPOrchTransferRequestIsCreated("Ultracs", "TMV") (0.0s)
+And the Debit Account field is 389018081301905
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheDebitAccountFieldIs("389018081301905") (0.0s)
+And the credit Account is 389023066848550
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheCreditAccountIs("389023066848550") (0.0s)
+And the debtor AccountId is lc_76b61c57-9758-4f9f-a36e-b0d783a44581
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenDebtorAccountIdIs("lc_76b61c57-9758-...") (0.0s)
+And the creditor AccountId is nc_4202e682-c9be-4f6b-8727-142a48f750dd
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenCreditorAccountIdIs("nc_4202e682-c9be-...") (0.0s)
+When POrch Transfer API is called
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenPOrchAPIIsCalled("Transfer") (0.4s)
+Then the request should return status code 201
+-&gt; done: POrchApiIntegrationStepDefinitions.ThenTheRequestShouldReturnStatusCode(201) (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="1eef3a60-0dc9-4b12-a171-88d37b283d49" testId="11856cd0-c301-7339-4f7e-d2aa1e8ade04" testName="POrchTransfer_TMV_To_Ultracs_Negative_ADPS_Response_409" computerName="ip-10-130-163-20" startTime="2025-09-12T13:02:55.5862042+12:00" endTime="2025-09-12T13:02:55.5866790+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1eef3a60-0dc9-4b12-a171-88d37b283d49">
+      <Output></Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="babb3180-259d-467e-8992-49b5bed6576a" testId="f8e37ac0-1bbd-bbf4-2548-40d7dd5b08d7" testName="POrchTransfer_UltracsToTMV_Valid_Payer_Code_Return_Success (=@#_%,.,201,)" computerName="ip-10-130-163-20" duration="00:00:00.3179963" startTime="2025-09-12T13:02:57.3226342+12:00" endTime="2025-09-12T13:02:57.6408920+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="babb3180-259d-467e-8992-49b5bed6576a">
+      <Output>
+        <StdOut>[2025-09-12 13:02:57 INF] Starting Test Execution: POrchTransfer_UltracsToTMV_Valid_Payer_Code_Return_Success:["[DebtorCodeValue, =@#_%,.]","[StatusCode, 201]"]
+[2025-09-12 13:02:57 INF] Response has PaymentId: 9c03eed8-42be-47d9-be9b-90cd16610e1f
+[2025-09-12 13:02:57 INF] Finished Test Execution: POrchTransfer_UltracsToTMV_Valid_Payer_Code_Return_Success
+[2025-09-12 13:02:57 INF] ----------------------------------------------------------
+
+
+
+TestContext Messages:
+Given a Ultracs to TMV POrch TransferRequest is created
+-&gt; done: POrchApiIntegrationStepDefinitions.ConditionalPOrchTransferRequestIsCreated("Ultracs", "TMV") (0.0s)
+And the Debit Account field is 389023066848503
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheDebitAccountFieldIs("389023066848503") (0.0s)
+And the credit Account is 389023066848550
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheCreditAccountIs("389023066848550") (0.0s)
+And the debtor AccountId is lc_ba3a2de9-8b8c-4956-9949-9e7ff20e5f4a
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenDebtorAccountIdIs("lc_ba3a2de9-8b8c-...") (0.0s)
+And the creditor AccountId is nc_4202e682-c9be-4f6b-8727-142a48f750dd
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenCreditorAccountIdIs("nc_4202e682-c9be-...") (0.0s)
+And the Transfer Debtor Code is =@#_%,.
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheDebtorCodeIs("Transfer", "=@#_%,.") (0.0s)
+When POrch Transfer API is called
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenPOrchAPIIsCalled("Transfer") (0.3s)
+Then the request should return status code 201
+-&gt; done: POrchApiIntegrationStepDefinitions.ThenTheRequestShouldReturnStatusCode(201) (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="23635b7e-b57a-4cc3-904f-9e8793d84922" testId="b7c92174-4d63-19d2-7418-a1208a3ea9e2" testName="POrchTransfer_UltracsToTMV_Valid_Payer_Code_Return_Success (()+$*!;-/?:,201,)" computerName="ip-10-130-163-20" duration="00:00:00.3492212" startTime="2025-09-12T13:02:56.9730293+12:00" endTime="2025-09-12T13:02:57.3225352+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="23635b7e-b57a-4cc3-904f-9e8793d84922">
+      <Output>
+        <StdOut>[2025-09-12 13:02:56 INF] Starting Test Execution: POrchTransfer_UltracsToTMV_Valid_Payer_Code_Return_Success:["[DebtorCodeValue, ()+$*!;-/?:]","[StatusCode, 201]"]
+[2025-09-12 13:02:57 INF] Response has PaymentId: f8f2b2f1-f80e-49e0-bc01-44d305275f86
+[2025-09-12 13:02:57 INF] Finished Test Execution: POrchTransfer_UltracsToTMV_Valid_Payer_Code_Return_Success
+[2025-09-12 13:02:57 INF] ----------------------------------------------------------
+
+
+
+TestContext Messages:
+Given a Ultracs to TMV POrch TransferRequest is created
+-&gt; done: POrchApiIntegrationStepDefinitions.ConditionalPOrchTransferRequestIsCreated("Ultracs", "TMV") (0.0s)
+And the Debit Account field is 389023066848503
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheDebitAccountFieldIs("389023066848503") (0.0s)
+And the credit Account is 389023066848550
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheCreditAccountIs("389023066848550") (0.0s)
+And the debtor AccountId is lc_ba3a2de9-8b8c-4956-9949-9e7ff20e5f4a
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenDebtorAccountIdIs("lc_ba3a2de9-8b8c-...") (0.0s)
+And the creditor AccountId is nc_4202e682-c9be-4f6b-8727-142a48f750dd
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenCreditorAccountIdIs("nc_4202e682-c9be-...") (0.0s)
+And the Transfer Debtor Code is ()+$*!;-/?:
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenTheDebtorCodeIs("Transfer", "()+$*!;-/?:") (0.0s)
+When POrch Transfer API is called
+-&gt; done: POrchApiIntegrationStepDefinitions.WhenPOrchAPIIsCalled("Transfer") (0.3s)
+Then the request should return status code 201
+-&gt; done: POrchApiIntegrationStepDefinitions.ThenTheRequestShouldReturnStatusCode(201) (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="POrchTransfer_UltracsToTMV_Negative_Closed_Debit_Account" storage="/codebuild/output/src2195861077/src/kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/testings.integration/bin/release/net8.0/kiwibank.payments.paymentsorchestrator.testings.integration.dll" id="be08730d-7d0f-e8c5-0750-d5a826172b1b">
+      <TestCategory>
+        <TestCategoryItem TestCategory="L4ProcessPayment.UltracsTmvTransfer" />
+        <TestCategoryItem TestCategory="POrchTransfer" />
+        <TestCategoryItem TestCategory="EDB-MPS-IPC-REQ.04" />
+        <TestCategoryItem TestCategory="NegativeTest" />
+        <TestCategoryItem TestCategory="Process:L4ProcessPayment" />
+        <TestCategoryItem TestCategory="Outcome:L4ProcessPayment.UltracsTmvTransfer" />
+      </TestCategory>
+      <Execution id="eaf72c2c-9277-4e1d-84a7-5fc4f7530b90" />
+      <TestMethod codeBase="/codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll" adapterTypeName="executor://mstestadapter/v2" className="Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.TestFeatures.POrchTransferTransferIntegrateUltracsTMVFeature" name="POrchTransfer_UltracsToTMV_Negative_Closed_Debit_Account" />
+    </UnitTest>
+    <UnitTest name="POrchAPI_Idempotency_201_Gives_201_For_Same_Idempotency_Combo" storage="/codebuild/output/src2195861077/src/kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/testings.integration/bin/release/net8.0/kiwibank.payments.paymentsorchestrator.testings.integration.dll" id="ae893792-a79c-1dcf-3a86-6c6369b79bcb">
+      <TestCategory>
+        <TestCategoryItem TestCategory="Process:L4ProcessPayment" />
+        <TestCategoryItem TestCategory="Outcome:L4ProcessPayment.UltracsUltracsTransfer" />
+        <TestCategoryItem TestCategory="POrchAPI" />
+      </TestCategory>
+      <Execution id="98a66b53-cfd4-45a1-9b88-330e2dae841d" />
+      <TestMethod codeBase="/codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll" adapterTypeName="executor://mstestadapter/v2" className="Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.TestFeatures.POrchAPIIntegrationFeature" name="POrchAPI_Idempotency_201_Gives_201_For_Same_Idempotency_Combo" />
+    </UnitTest>
+    <UnitTest name="POrchTransfer_UltracsToUltracs_Negative_Frozen_Debit_Account" storage="/codebuild/output/src2195861077/src/kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/testings.integration/bin/release/net8.0/kiwibank.payments.paymentsorchestrator.testings.integration.dll" id="fcd80163-53b7-17f4-dc1c-013a7d7bce82">
+      <TestCategory>
+        <TestCategoryItem TestCategory="POrchTransfer" />
+        <TestCategoryItem TestCategory="EDB-MPS-IPC-REQ.04" />
+        <TestCategoryItem TestCategory="NegativeTest" />
+        <TestCategoryItem TestCategory="L4ProcessPayment.UltracsUltracsTransfer" />
+        <TestCategoryItem TestCategory="Process:L4ProcessPayment" />
+        <TestCategoryItem TestCategory="Outcome:L4ProcessPayment.UltracsUltracsTransfer" />
+      </TestCategory>
+      <Execution id="4b6c8681-d3df-4d76-9f3b-b094eb29a46e" />
+      <TestMethod codeBase="/codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll" adapterTypeName="executor://mstestadapter/v2" className="Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.TestFeatures.POrchAPITransferIntegrateUltracsUltracsFeature" name="POrchTransfer_UltracsToUltracs_Negative_Frozen_Debit_Account" />
+    </UnitTest>
+    <UnitTest name="POrchTransfer_UltracsToTMV_Valid_Payer_Code_Return_Success (()+$*!;-/?:,201,)" storage="/codebuild/output/src2195861077/src/kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/testings.integration/bin/release/net8.0/kiwibank.payments.paymentsorchestrator.testings.integration.dll" id="b7c92174-4d63-19d2-7418-a1208a3ea9e2">
+      <TestCategory>
+        <TestCategoryItem TestCategory="L4ProcessPayment.UltracsTMVTransfer" />
+        <TestCategoryItem TestCategory="POrchTransfer" />
+        <TestCategoryItem TestCategory="EDB-MPS-IPC-REQ.02" />
+        <TestCategoryItem TestCategory="PositiveTest" />
+        <TestCategoryItem TestCategory="Process:L4ProcessPayment" />
+        <TestCategoryItem TestCategory="Outcome:L4ProcessPayment.UltracsTmvTransfer" />
+      </TestCategory>
+      <Execution id="23635b7e-b57a-4cc3-904f-9e8793d84922" />
+      <TestMethod codeBase="/codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll" adapterTypeName="executor://mstestadapter/v2" className="Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.TestFeatures.POrchTransferTransferIntegrateUltracsTMVFeature" name="POrchTransfer_UltracsToTMV_Valid_Payer_Code_Return_Success" />
+    </UnitTest>
+    <UnitTest name="POrchTransfer_Ultracs_To_Ultracs_Successful" storage="/codebuild/output/src2195861077/src/kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/testings.integration/bin/release/net8.0/kiwibank.payments.paymentsorchestrator.testings.integration.dll" id="8ad1d658-4f1e-9ab6-9106-02b856550245">
+      <TestCategory>
+        <TestCategoryItem TestCategory="POrchTransfer" />
+        <TestCategoryItem TestCategory="Process:L4ProcessPayment" />
+        <TestCategoryItem TestCategory="Outcome:L4ProcessPayment.UltracsUltracsTransfer" />
+        <TestCategoryItem TestCategory="L4ProcessPayment.UltracsUltracsTransfer" />
+      </TestCategory>
+      <Execution id="6dfcc872-ccd4-426a-b00e-647ce8d7e84c" />
+      <TestMethod codeBase="/codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll" adapterTypeName="executor://mstestadapter/v2" className="Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.TestFeatures.POrchAPITransferIntegrateUltracsUltracsFeature" name="POrchTransfer_Ultracs_To_Ultracs_Successful" />
+    </UnitTest>
+    <UnitTest name="POrchAPI_Closed_Credit_Account_Return_Error" storage="/codebuild/output/src2195861077/src/kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/testings.integration/bin/release/net8.0/kiwibank.payments.paymentsorchestrator.testings.integration.dll" id="6be081f2-c6e7-d412-39eb-fe90568f52d3">
+      <TestCategory>
+        <TestCategoryItem TestCategory="NegativeTest" />
+        <TestCategoryItem TestCategory="Process:L4ProcessPayment" />
+        <TestCategoryItem TestCategory="Outcome:L4ProcessPayment.UltracsUltracsTransfer" />
+        <TestCategoryItem TestCategory="POrchAPI" />
+      </TestCategory>
+      <Execution id="685b082d-25a7-46fb-a957-907452351d80" />
+      <TestMethod codeBase="/codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll" adapterTypeName="executor://mstestadapter/v2" className="Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.TestFeatures.POrchAPIIntegrationFeature" name="POrchAPI_Closed_Credit_Account_Return_Error" />
+    </UnitTest>
+    <UnitTest name="POrchTransfer_TMVtoTMV_Valid_Payer_Particulars_Return_Success (=@#_%,.,201,)" storage="/codebuild/output/src2195861077/src/kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/testings.integration/bin/release/net8.0/kiwibank.payments.paymentsorchestrator.testings.integration.dll" id="e338ed8f-6e41-dc55-a16e-f4bd75754932">
+      <TestCategory>
+        <TestCategoryItem TestCategory="Outcome:L4ProcessPayment.TmvTmvTransfer" />
+        <TestCategoryItem TestCategory="EDB-MPS-IPC-REQ.01" />
+        <TestCategoryItem TestCategory="POrchTransfer" />
+        <TestCategoryItem TestCategory="PositiveTest" />
+        <TestCategoryItem TestCategory="L4ProcessPayment.TmvTmvTransfer" />
+        <TestCategoryItem TestCategory="Process:L4ProcessPayment" />
+      </TestCategory>
+      <Execution id="0dc2f01f-de22-41db-932c-58d99629808d" />
+      <TestMethod codeBase="/codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll" adapterTypeName="executor://mstestadapter/v2" className="Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.TestFeatures.POrchAPITransferIntegrateTmvTmvFeature" name="POrchTransfer_TMVtoTMV_Valid_Payer_Particulars_Return_Success" />
+    </UnitTest>
+    <UnitTest name="POrchTransfer_UltracsSavingsAcct_To_TMV_Successful" storage="/codebuild/output/src2195861077/src/kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/testings.integration/bin/release/net8.0/kiwibank.payments.paymentsorchestrator.testings.integration.dll" id="fd188a01-9c12-34d3-95c2-148974b45edb">
+      <TestCategory>
+        <TestCategoryItem TestCategory="L4ProcessPayment.UltracsTMVTransfer" />
+        <TestCategoryItem TestCategory="POrchTransfer" />
+        <TestCategoryItem TestCategory="EDB-MPS-IPC-REQ.02" />
+        <TestCategoryItem TestCategory="PositiveTest" />
+        <TestCategoryItem TestCategory="Process:L4ProcessPayment" />
+        <TestCategoryItem TestCategory="Outcome:L4ProcessPayment.UltracsTmvTransfer" />
+      </TestCategory>
+      <Execution id="f7ebdd6d-2299-4a2c-a72c-228d2b471f07" />
+      <TestMethod codeBase="/codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll" adapterTypeName="executor://mstestadapter/v2" className="Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.TestFeatures.POrchTransferTransferIntegrateUltracsTMVFeature" name="POrchTransfer_UltracsSavingsAcct_To_TMV_Successful" />
+    </UnitTest>
+    <UnitTest name="POrchTransfer_TMV_To_UltracsSavingsAcct_Successful" storage="/codebuild/output/src2195861077/src/kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/testings.integration/bin/release/net8.0/kiwibank.payments.paymentsorchestrator.testings.integration.dll" id="a8f2b7cb-df5d-f01c-88b8-01a443ce3ce5">
+      <TestCategory>
+        <TestCategoryItem TestCategory="EDB-MPS-IPC-REQ.02" />
+        <TestCategoryItem TestCategory="POrchTransfer" />
+        <TestCategoryItem TestCategory="L4ProcessPayment.TmvUltracsTransfer" />
+        <TestCategoryItem TestCategory="PositiveTest" />
+        <TestCategoryItem TestCategory="Process:L4ProcessPayment" />
+        <TestCategoryItem TestCategory="Outcome:L4ProcessPayment.TmvUltracsTransfer" />
+      </TestCategory>
+      <Execution id="e48403c2-a94b-4260-b124-ef7ac11e89fc" />
+      <TestMethod codeBase="/codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll" adapterTypeName="executor://mstestadapter/v2" className="Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.TestFeatures.POrchTransferTransferIntegrateTMVUltracsFeature" name="POrchTransfer_TMV_To_UltracsSavingsAcct_Successful" />
+    </UnitTest>
+    <UnitTest name="POrchTransfer_TMV_To_UltracsInvestmentAcct_Successful" storage="/codebuild/output/src2195861077/src/kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/testings.integration/bin/release/net8.0/kiwibank.payments.paymentsorchestrator.testings.integration.dll" id="ae384ae0-02b3-0dd3-fd2e-842717ea14b0">
+      <TestCategory>
+        <TestCategoryItem TestCategory="EDB-MPS-IPC-REQ.02" />
+        <TestCategoryItem TestCategory="POrchTransfer" />
+        <TestCategoryItem TestCategory="L4ProcessPayment.TmvUltracsTransfer" />
+        <TestCategoryItem TestCategory="PositiveTest" />
+        <TestCategoryItem TestCategory="Process:L4ProcessPayment" />
+        <TestCategoryItem TestCategory="Outcome:L4ProcessPayment.TmvUltracsTransfer" />
+      </TestCategory>
+      <Execution id="361de2f3-cd6d-477e-8527-40c8ec7b77fb" />
+      <TestMethod codeBase="/codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll" adapterTypeName="executor://mstestadapter/v2" className="Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.TestFeatures.POrchTransferTransferIntegrateTMVUltracsFeature" name="POrchTransfer_TMV_To_UltracsInvestmentAcct_Successful" />
+    </UnitTest>
+    <UnitTest name="POrchTransfer_TMVtoTMV_Negative_ADPS_Response_409" storage="/codebuild/output/src2195861077/src/kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/testings.integration/bin/release/net8.0/kiwibank.payments.paymentsorchestrator.testings.integration.dll" id="862edd37-0ba8-d76e-e795-15ba25176135">
+      <TestCategory>
+        <TestCategoryItem TestCategory="Outcome:L4ProcessPayment.TmvTmvTransfer" />
+        <TestCategoryItem TestCategory="POrchTransfer" />
+        <TestCategoryItem TestCategory="L4ProcessPayment.TmvTmvTransfer" />
+        <TestCategoryItem TestCategory="EDB-MPS-IPC-REQ.04" />
+        <TestCategoryItem TestCategory="NegativeTest" />
+        <TestCategoryItem TestCategory="Process:L4ProcessPayment" />
+      </TestCategory>
+      <Execution id="ba573430-29a2-49a3-9351-5bdc0a97eb28" />
+      <TestMethod codeBase="/codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll" adapterTypeName="executor://mstestadapter/v2" className="Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.TestFeatures.POrchAPITransferIntegrateTmvTmvFeature" name="POrchTransfer_TMVtoTMV_Negative_ADPS_Response_409" />
+    </UnitTest>
+    <UnitTest name="POrchTransfer_UltracsInvestmentAcct_To_TMV_Successful" storage="/codebuild/output/src2195861077/src/kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/testings.integration/bin/release/net8.0/kiwibank.payments.paymentsorchestrator.testings.integration.dll" id="98cabea3-7ff9-360f-8ba2-f8a8b55ea067">
+      <TestCategory>
+        <TestCategoryItem TestCategory="L4ProcessPayment.UltracsTMVTransfer" />
+        <TestCategoryItem TestCategory="POrchTransfer" />
+        <TestCategoryItem TestCategory="EDB-MPS-IPC-REQ.02" />
+        <TestCategoryItem TestCategory="PositiveTest" />
+        <TestCategoryItem TestCategory="Process:L4ProcessPayment" />
+        <TestCategoryItem TestCategory="Outcome:L4ProcessPayment.UltracsTmvTransfer" />
+      </TestCategory>
+      <Execution id="aa1e9ab3-d715-41e0-a5c8-1d5829bf3d25" />
+      <TestMethod codeBase="/codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll" adapterTypeName="executor://mstestadapter/v2" className="Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.TestFeatures.POrchTransferTransferIntegrateUltracsTMVFeature" name="POrchTransfer_UltracsInvestmentAcct_To_TMV_Successful" />
+    </UnitTest>
+    <UnitTest name="POrchTransfer_UltracsTransactionAcct_To_TMV_Successful" storage="/codebuild/output/src2195861077/src/kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/testings.integration/bin/release/net8.0/kiwibank.payments.paymentsorchestrator.testings.integration.dll" id="de1cab8b-aec2-cf38-8e18-19b4e822e8a0">
+      <TestCategory>
+        <TestCategoryItem TestCategory="L4ProcessPayment.UltracsTMVTransfer" />
+        <TestCategoryItem TestCategory="POrchTransfer" />
+        <TestCategoryItem TestCategory="EDB-MPS-IPC-REQ.02" />
+        <TestCategoryItem TestCategory="PositiveTest" />
+        <TestCategoryItem TestCategory="Process:L4ProcessPayment" />
+        <TestCategoryItem TestCategory="Outcome:L4ProcessPayment.UltracsTmvTransfer" />
+      </TestCategory>
+      <Execution id="227bab17-96af-481f-a3ab-32adc1b6f86b" />
+      <TestMethod codeBase="/codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll" adapterTypeName="executor://mstestadapter/v2" className="Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.TestFeatures.POrchTransferTransferIntegrateUltracsTMVFeature" name="POrchTransfer_UltracsTransactionAcct_To_TMV_Successful" />
+    </UnitTest>
+    <UnitTest name="POrchTransfer_TMVtoTMV_Valid_Payer_Particulars_Return_Success (()+$*!;-/?:,201,)" storage="/codebuild/output/src2195861077/src/kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/testings.integration/bin/release/net8.0/kiwibank.payments.paymentsorchestrator.testings.integration.dll" id="ca92f0e9-de9f-e8e4-6bd1-d3fefcc645a7">
+      <TestCategory>
+        <TestCategoryItem TestCategory="Outcome:L4ProcessPayment.TmvTmvTransfer" />
+        <TestCategoryItem TestCategory="EDB-MPS-IPC-REQ.01" />
+        <TestCategoryItem TestCategory="POrchTransfer" />
+        <TestCategoryItem TestCategory="PositiveTest" />
+        <TestCategoryItem TestCategory="L4ProcessPayment.TmvTmvTransfer" />
+        <TestCategoryItem TestCategory="Process:L4ProcessPayment" />
+      </TestCategory>
+      <Execution id="97c5e9ca-3e23-426c-89ea-398ccf2fe725" />
+      <TestMethod codeBase="/codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll" adapterTypeName="executor://mstestadapter/v2" className="Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.TestFeatures.POrchAPITransferIntegrateTmvTmvFeature" name="POrchTransfer_TMVtoTMV_Valid_Payer_Particulars_Return_Success" />
+    </UnitTest>
+    <UnitTest name="POrchTransfer_Ultracs_To_Ultracs_Negative_Insufficient_Funds" storage="/codebuild/output/src2195861077/src/kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/testings.integration/bin/release/net8.0/kiwibank.payments.paymentsorchestrator.testings.integration.dll" id="deb34f48-dad7-0353-9e43-b1c5cc139f14">
+      <TestCategory>
+        <TestCategoryItem TestCategory="NegativeTest" />
+        <TestCategoryItem TestCategory="Process:L4ProcessPayment" />
+        <TestCategoryItem TestCategory="Outcome:L4ProcessPayment.UltracsUltracsTransfer" />
+        <TestCategoryItem TestCategory="L4ProcessPayment.UltracsUltracsTransfer" />
+      </TestCategory>
+      <Execution id="4674625c-1346-4888-8e06-d9928716e551" />
+      <TestMethod codeBase="/codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll" adapterTypeName="executor://mstestadapter/v2" className="Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.TestFeatures.POrchAPITransferIntegrateUltracsUltracsFeature" name="POrchTransfer_Ultracs_To_Ultracs_Negative_Insufficient_Funds" />
+    </UnitTest>
+    <UnitTest name="POrchTransfer_Tmv_To_Tmv_Successful" storage="/codebuild/output/src2195861077/src/kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/testings.integration/bin/release/net8.0/kiwibank.payments.paymentsorchestrator.testings.integration.dll" id="f2a4c671-5cec-b2e6-29b5-d1eda1e702fa">
+      <TestCategory>
+        <TestCategoryItem TestCategory="Outcome:L4ProcessPayment.TmvTmvTransfer" />
+        <TestCategoryItem TestCategory="EDB-MPS-IPC-REQ.01" />
+        <TestCategoryItem TestCategory="POrchTransfer" />
+        <TestCategoryItem TestCategory="PositiveTest" />
+        <TestCategoryItem TestCategory="L4ProcessPayment.TmvTmvTransfer" />
+        <TestCategoryItem TestCategory="Process:L4ProcessPayment" />
+      </TestCategory>
+      <Execution id="32a90738-b888-4192-bf54-9574e55b107b" />
+      <TestMethod codeBase="/codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll" adapterTypeName="executor://mstestadapter/v2" className="Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.TestFeatures.POrchAPITransferIntegrateTmvTmvFeature" name="POrchTransfer_Tmv_To_Tmv_Successful" />
+    </UnitTest>
+    <UnitTest name="POrchTransfer_UltracsToTMV_Valid_Payer_Code_Return_Success (=@#_%,.,201,)" storage="/codebuild/output/src2195861077/src/kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/testings.integration/bin/release/net8.0/kiwibank.payments.paymentsorchestrator.testings.integration.dll" id="f8e37ac0-1bbd-bbf4-2548-40d7dd5b08d7">
+      <TestCategory>
+        <TestCategoryItem TestCategory="L4ProcessPayment.UltracsTMVTransfer" />
+        <TestCategoryItem TestCategory="POrchTransfer" />
+        <TestCategoryItem TestCategory="EDB-MPS-IPC-REQ.02" />
+        <TestCategoryItem TestCategory="PositiveTest" />
+        <TestCategoryItem TestCategory="Process:L4ProcessPayment" />
+        <TestCategoryItem TestCategory="Outcome:L4ProcessPayment.UltracsTmvTransfer" />
+      </TestCategory>
+      <Execution id="babb3180-259d-467e-8992-49b5bed6576a" />
+      <TestMethod codeBase="/codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll" adapterTypeName="executor://mstestadapter/v2" className="Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.TestFeatures.POrchTransferTransferIntegrateUltracsTMVFeature" name="POrchTransfer_UltracsToTMV_Valid_Payer_Code_Return_Success" />
+    </UnitTest>
+    <UnitTest name="POrchTransfer_Ultracs_To_Ultracs_Valid_Payer_Particulars_Return_Success (=@#_%,.,201,)" storage="/codebuild/output/src2195861077/src/kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/testings.integration/bin/release/net8.0/kiwibank.payments.paymentsorchestrator.testings.integration.dll" id="e232b2a9-e115-39d2-3465-85916a215809">
+      <TestCategory>
+        <TestCategoryItem TestCategory="POrchTransfer" />
+        <TestCategoryItem TestCategory="PositiveTest" />
+        <TestCategoryItem TestCategory="Process:L4ProcessPayment" />
+        <TestCategoryItem TestCategory="Outcome:L4ProcessPayment.UltracsUltracsTransfer" />
+        <TestCategoryItem TestCategory="L4ProcessPayment.UltracsUltracsTransfer" />
+      </TestCategory>
+      <Execution id="727e35b3-d350-4397-92e3-0c3409871b74" />
+      <TestMethod codeBase="/codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll" adapterTypeName="executor://mstestadapter/v2" className="Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.TestFeatures.POrchAPITransferIntegrateUltracsUltracsFeature" name="POrchTransfer_Ultracs_To_Ultracs_Valid_Payer_Particulars_Return_Success" />
+    </UnitTest>
+    <UnitTest name="POrchTransfer_TMV_To_Ultracs_Negative_ADPS_Response_409" storage="/codebuild/output/src2195861077/src/kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/testings.integration/bin/release/net8.0/kiwibank.payments.paymentsorchestrator.testings.integration.dll" id="11856cd0-c301-7339-4f7e-d2aa1e8ade04">
+      <TestCategory>
+        <TestCategoryItem TestCategory="POrchTransfer" />
+        <TestCategoryItem TestCategory="L4ProcessPayment.TmvUltracsTransfer" />
+        <TestCategoryItem TestCategory="EDB-MPS-IPC-REQ.04" />
+        <TestCategoryItem TestCategory="NegativeTest" />
+        <TestCategoryItem TestCategory="Process:L4ProcessPayment" />
+        <TestCategoryItem TestCategory="Outcome:L4ProcessPayment.TmvUltracsTransfer" />
+      </TestCategory>
+      <Execution id="1eef3a60-0dc9-4b12-a171-88d37b283d49" />
+      <TestMethod codeBase="/codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll" adapterTypeName="executor://mstestadapter/v2" className="Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.TestFeatures.POrchTransferTransferIntegrateTMVUltracsFeature" name="POrchTransfer_TMV_To_Ultracs_Negative_ADPS_Response_409" />
+    </UnitTest>
+    <UnitTest name="POrchTransfer_TMV_To_UltracsTransactionAcct_Successful" storage="/codebuild/output/src2195861077/src/kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/testings.integration/bin/release/net8.0/kiwibank.payments.paymentsorchestrator.testings.integration.dll" id="0337aea6-c604-b00d-198c-0c215a080436">
+      <TestCategory>
+        <TestCategoryItem TestCategory="EDB-MPS-IPC-REQ.02" />
+        <TestCategoryItem TestCategory="POrchTransfer" />
+        <TestCategoryItem TestCategory="L4ProcessPayment.TmvUltracsTransfer" />
+        <TestCategoryItem TestCategory="PositiveTest" />
+        <TestCategoryItem TestCategory="Process:L4ProcessPayment" />
+        <TestCategoryItem TestCategory="Outcome:L4ProcessPayment.TmvUltracsTransfer" />
+      </TestCategory>
+      <Execution id="c8d720af-12af-4109-9334-ff83570fc09d" />
+      <TestMethod codeBase="/codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll" adapterTypeName="executor://mstestadapter/v2" className="Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.TestFeatures.POrchTransferTransferIntegrateTMVUltracsFeature" name="POrchTransfer_TMV_To_UltracsTransactionAcct_Successful" />
+    </UnitTest>
+    <UnitTest name="POrchTransfer_TMV_To_Ultracs_Valid_Payee_Particulars_Return_Success (=@#_:%,.,201,)" storage="/codebuild/output/src2195861077/src/kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/testings.integration/bin/release/net8.0/kiwibank.payments.paymentsorchestrator.testings.integration.dll" id="3e40ea4d-99dd-dad0-2563-a5a76f06ba83">
+      <TestCategory>
+        <TestCategoryItem TestCategory="EDB-MPS-IPC-REQ.02" />
+        <TestCategoryItem TestCategory="POrchTransfer" />
+        <TestCategoryItem TestCategory="L4ProcessPayment.TmvUltracsTransfer" />
+        <TestCategoryItem TestCategory="PositiveTest" />
+        <TestCategoryItem TestCategory="Process:L4ProcessPayment" />
+        <TestCategoryItem TestCategory="Outcome:L4ProcessPayment.TmvUltracsTransfer" />
+      </TestCategory>
+      <Execution id="d0b3e28a-0f39-4f6d-bec0-094be17e089c" />
+      <TestMethod codeBase="/codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll" adapterTypeName="executor://mstestadapter/v2" className="Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.TestFeatures.POrchTransferTransferIntegrateTMVUltracsFeature" name="POrchTransfer_TMV_To_Ultracs_Valid_Payee_Particulars_Return_Success" />
+    </UnitTest>
+    <UnitTest name="POrchTransfer_UltracsToTMV_Negative_Insufficient_Funds" storage="/codebuild/output/src2195861077/src/kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/testings.integration/bin/release/net8.0/kiwibank.payments.paymentsorchestrator.testings.integration.dll" id="b6ac546a-4475-a009-6705-0731f0dc9d44">
+      <TestCategory>
+        <TestCategoryItem TestCategory="L4ProcessPayment.UltracsTmvTransfer" />
+        <TestCategoryItem TestCategory="POrchTransfer" />
+        <TestCategoryItem TestCategory="EDB-MPS-IPC-REQ.04" />
+        <TestCategoryItem TestCategory="NegativeTest" />
+        <TestCategoryItem TestCategory="Process:L4ProcessPayment" />
+        <TestCategoryItem TestCategory="Outcome:L4ProcessPayment.UltracsTmvTransfer" />
+      </TestCategory>
+      <Execution id="5df5235d-e60c-407c-8386-55e59444781e" />
+      <TestMethod codeBase="/codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll" adapterTypeName="executor://mstestadapter/v2" className="Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.TestFeatures.POrchTransferTransferIntegrateUltracsTMVFeature" name="POrchTransfer_UltracsToTMV_Negative_Insufficient_Funds" />
+    </UnitTest>
+    <UnitTest name="POrchAPI_Closed_Debit_Account_Return_Error" storage="/codebuild/output/src2195861077/src/kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/testings.integration/bin/release/net8.0/kiwibank.payments.paymentsorchestrator.testings.integration.dll" id="de87c021-6a7d-a6aa-4a08-cdd06e5ab0df">
+      <TestCategory>
+        <TestCategoryItem TestCategory="NegativeTest" />
+        <TestCategoryItem TestCategory="Process:L4ProcessPayment" />
+        <TestCategoryItem TestCategory="Outcome:L4ProcessPayment.UltracsUltracsTransfer" />
+        <TestCategoryItem TestCategory="POrchAPI" />
+      </TestCategory>
+      <Execution id="7591dde0-4a1b-4960-8261-a476149509fc" />
+      <TestMethod codeBase="/codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll" adapterTypeName="executor://mstestadapter/v2" className="Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.TestFeatures.POrchAPIIntegrationFeature" name="POrchAPI_Closed_Debit_Account_Return_Error" />
+    </UnitTest>
+    <UnitTest name="POrchTransfer_TMV_To_Ultracs_Valid_Payee_Particulars_Return_Success (()+$*!;-/?,201,)" storage="/codebuild/output/src2195861077/src/kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/testings.integration/bin/release/net8.0/kiwibank.payments.paymentsorchestrator.testings.integration.dll" id="9eefd3b9-872e-d362-a565-ad2c08f87bc3">
+      <TestCategory>
+        <TestCategoryItem TestCategory="EDB-MPS-IPC-REQ.02" />
+        <TestCategoryItem TestCategory="POrchTransfer" />
+        <TestCategoryItem TestCategory="L4ProcessPayment.TmvUltracsTransfer" />
+        <TestCategoryItem TestCategory="PositiveTest" />
+        <TestCategoryItem TestCategory="Process:L4ProcessPayment" />
+        <TestCategoryItem TestCategory="Outcome:L4ProcessPayment.TmvUltracsTransfer" />
+      </TestCategory>
+      <Execution id="6f4636cd-f078-49e2-82ea-b16817a9f477" />
+      <TestMethod codeBase="/codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll" adapterTypeName="executor://mstestadapter/v2" className="Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.TestFeatures.POrchTransferTransferIntegrateTMVUltracsFeature" name="POrchTransfer_TMV_To_Ultracs_Valid_Payee_Particulars_Return_Success" />
+    </UnitTest>
+    <UnitTest name="POrchAPI_InsufficientFunds_Debit_Account_Return_Error" storage="/codebuild/output/src2195861077/src/kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/testings.integration/bin/release/net8.0/kiwibank.payments.paymentsorchestrator.testings.integration.dll" id="1fbd2d8b-0353-2b79-d9e5-5cf555f22056">
+      <TestCategory>
+        <TestCategoryItem TestCategory="NegativeTest" />
+        <TestCategoryItem TestCategory="Process:L4ProcessPayment" />
+        <TestCategoryItem TestCategory="Outcome:L4ProcessPayment.UltracsUltracsTransfer" />
+        <TestCategoryItem TestCategory="POrchAPI" />
+      </TestCategory>
+      <Execution id="d047c606-bbc5-487e-b470-c36094cd6ded" />
+      <TestMethod codeBase="/codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll" adapterTypeName="executor://mstestadapter/v2" className="Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.TestFeatures.POrchAPIIntegrationFeature" name="POrchAPI_InsufficientFunds_Debit_Account_Return_Error" />
+    </UnitTest>
+    <UnitTest name="POrchAPI_To_External_Account_Successful" storage="/codebuild/output/src2195861077/src/kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/testings.integration/bin/release/net8.0/kiwibank.payments.paymentsorchestrator.testings.integration.dll" id="df905d01-0908-47bf-6fc8-16d89da66b82">
+      <TestCategory>
+        <TestCategoryItem TestCategory="Process:L4ProcessPayment" />
+        <TestCategoryItem TestCategory="Outcome:L4ProcessPayment.UltracsUltracsTransfer" />
+        <TestCategoryItem TestCategory="POrchAPI" />
+      </TestCategory>
+      <Execution id="9325858b-0356-4a7a-b7f1-a57db2885634" />
+      <TestMethod codeBase="/codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll" adapterTypeName="executor://mstestadapter/v2" className="Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.TestFeatures.POrchAPIIntegrationFeature" name="POrchAPI_To_External_Account_Successful" />
+    </UnitTest>
+    <UnitTest name="POrchAPI_FraudReject_Credit_Account_Returns_Error" storage="/codebuild/output/src2195861077/src/kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/testings.integration/bin/release/net8.0/kiwibank.payments.paymentsorchestrator.testings.integration.dll" id="262cc163-403a-3427-10c7-fe659a3b5236">
+      <TestCategory>
+        <TestCategoryItem TestCategory="NegativeTest" />
+        <TestCategoryItem TestCategory="Process:L4ProcessPayment" />
+        <TestCategoryItem TestCategory="Outcome:L4ProcessPayment.UltracsUltracsTransfer" />
+        <TestCategoryItem TestCategory="POrchAPI" />
+      </TestCategory>
+      <Execution id="c9e5004b-fd0f-475c-82dc-f4ea23a7085c" />
+      <TestMethod codeBase="/codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll" adapterTypeName="executor://mstestadapter/v2" className="Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.TestFeatures.POrchAPIIntegrationFeature" name="POrchAPI_FraudReject_Credit_Account_Returns_Error" />
+    </UnitTest>
+    <UnitTest name="POrchAPI_To_KBAccount_Successful" storage="/codebuild/output/src2195861077/src/kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/testings.integration/bin/release/net8.0/kiwibank.payments.paymentsorchestrator.testings.integration.dll" id="0dd20642-843d-516c-fb3b-5847db30e088">
+      <TestCategory>
+        <TestCategoryItem TestCategory="Process:L4ProcessPayment" />
+        <TestCategoryItem TestCategory="Outcome:L4ProcessPayment.UltracsUltracsTransfer" />
+        <TestCategoryItem TestCategory="POrchAPI" />
+      </TestCategory>
+      <Execution id="bb282fa5-5196-4864-9c06-4f7fbaea73b2" />
+      <TestMethod codeBase="/codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll" adapterTypeName="executor://mstestadapter/v2" className="Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.TestFeatures.POrchAPIIntegrationFeature" name="POrchAPI_To_KBAccount_Successful" />
+    </UnitTest>
+    <UnitTest name="POrchTransfer_UltracsToTMV_Negative_Frozen_Debit_Account" storage="/codebuild/output/src2195861077/src/kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/testings.integration/bin/release/net8.0/kiwibank.payments.paymentsorchestrator.testings.integration.dll" id="1561bc0d-b356-eef7-41a1-5ccc6added08">
+      <TestCategory>
+        <TestCategoryItem TestCategory="L4ProcessPayment.UltracsTmvTransfer" />
+        <TestCategoryItem TestCategory="POrchTransfer" />
+        <TestCategoryItem TestCategory="EDB-MPS-IPC-REQ.04" />
+        <TestCategoryItem TestCategory="NegativeTest" />
+        <TestCategoryItem TestCategory="Process:L4ProcessPayment" />
+        <TestCategoryItem TestCategory="Outcome:L4ProcessPayment.UltracsTmvTransfer" />
+      </TestCategory>
+      <Execution id="bb4a1578-4203-4dcf-93ba-219f31b571a9" />
+      <TestMethod codeBase="/codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll" adapterTypeName="executor://mstestadapter/v2" className="Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.TestFeatures.POrchTransferTransferIntegrateUltracsTMVFeature" name="POrchTransfer_UltracsToTMV_Negative_Frozen_Debit_Account" />
+    </UnitTest>
+    <UnitTest name="POrchAPI_Frozen_Debit_Account_Return_Error" storage="/codebuild/output/src2195861077/src/kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/testings.integration/bin/release/net8.0/kiwibank.payments.paymentsorchestrator.testings.integration.dll" id="d61bdf1c-4a88-fcc6-9106-33394601bf48">
+      <TestCategory>
+        <TestCategoryItem TestCategory="NegativeTest" />
+        <TestCategoryItem TestCategory="Process:L4ProcessPayment" />
+        <TestCategoryItem TestCategory="Outcome:L4ProcessPayment.UltracsUltracsTransfer" />
+        <TestCategoryItem TestCategory="POrchAPI" />
+      </TestCategory>
+      <Execution id="0ad130b9-d79e-434c-85e6-fc79600499a1" />
+      <TestMethod codeBase="/codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll" adapterTypeName="executor://mstestadapter/v2" className="Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.TestFeatures.POrchAPIIntegrationFeature" name="POrchAPI_Frozen_Debit_Account_Return_Error" />
+    </UnitTest>
+    <UnitTest name="POrchAPI_Idempotency_409_Gives_201_For_Same_Idempotency_Combo" storage="/codebuild/output/src2195861077/src/kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/testings.integration/bin/release/net8.0/kiwibank.payments.paymentsorchestrator.testings.integration.dll" id="71b8b00c-42ac-9de1-10b5-3167a9ec18c5">
+      <TestCategory>
+        <TestCategoryItem TestCategory="Process:L4ProcessPayment" />
+        <TestCategoryItem TestCategory="Outcome:L4ProcessPayment.UltracsUltracsTransfer" />
+        <TestCategoryItem TestCategory="POrchAPI" />
+      </TestCategory>
+      <Execution id="861764ed-e06e-4b45-9fb9-50840e2ed4a4" />
+      <TestMethod codeBase="/codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll" adapterTypeName="executor://mstestadapter/v2" className="Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.TestFeatures.POrchAPIIntegrationFeature" name="POrchAPI_Idempotency_409_Gives_201_For_Same_Idempotency_Combo" />
+    </UnitTest>
+    <UnitTest name="POrchTransfer_Ultracs_To_Ultracs_Valid_Payer_Particulars_Return_Success (()+$*!;-/?:,201,)" storage="/codebuild/output/src2195861077/src/kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/testings.integration/bin/release/net8.0/kiwibank.payments.paymentsorchestrator.testings.integration.dll" id="ce6cf9d1-cd10-ef87-b596-769a97a0553b">
+      <TestCategory>
+        <TestCategoryItem TestCategory="POrchTransfer" />
+        <TestCategoryItem TestCategory="PositiveTest" />
+        <TestCategoryItem TestCategory="Process:L4ProcessPayment" />
+        <TestCategoryItem TestCategory="Outcome:L4ProcessPayment.UltracsUltracsTransfer" />
+        <TestCategoryItem TestCategory="L4ProcessPayment.UltracsUltracsTransfer" />
+      </TestCategory>
+      <Execution id="42b593c8-e380-477b-8e1d-62d333590559" />
+      <TestMethod codeBase="/codebuild/output/src2195861077/src/Kiwibank-kb-cap-c17b067d0899fd8eab76e994fac32f86b40b021f/services/payments-orchestrator/src/Testings.Integration/bin/Release/net8.0/Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.dll" adapterTypeName="executor://mstestadapter/v2" className="Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration.TestFeatures.POrchAPITransferIntegrateUltracsUltracsFeature" name="POrchTransfer_Ultracs_To_Ultracs_Valid_Payer_Particulars_Return_Success" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="ae893792-a79c-1dcf-3a86-6c6369b79bcb" executionId="98a66b53-cfd4-45a1-9b88-330e2dae841d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fcd80163-53b7-17f4-dc1c-013a7d7bce82" executionId="4b6c8681-d3df-4d76-9f3b-b094eb29a46e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1fbd2d8b-0353-2b79-d9e5-5cf555f22056" executionId="d047c606-bbc5-487e-b470-c36094cd6ded" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ca92f0e9-de9f-e8e4-6bd1-d3fefcc645a7" executionId="97c5e9ca-3e23-426c-89ea-398ccf2fe725" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a8f2b7cb-df5d-f01c-88b8-01a443ce3ce5" executionId="e48403c2-a94b-4260-b124-ef7ac11e89fc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="df905d01-0908-47bf-6fc8-16d89da66b82" executionId="9325858b-0356-4a7a-b7f1-a57db2885634" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b6ac546a-4475-a009-6705-0731f0dc9d44" executionId="5df5235d-e60c-407c-8386-55e59444781e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0dd20642-843d-516c-fb3b-5847db30e088" executionId="bb282fa5-5196-4864-9c06-4f7fbaea73b2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="de87c021-6a7d-a6aa-4a08-cdd06e5ab0df" executionId="7591dde0-4a1b-4960-8261-a476149509fc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d61bdf1c-4a88-fcc6-9106-33394601bf48" executionId="0ad130b9-d79e-434c-85e6-fc79600499a1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8ad1d658-4f1e-9ab6-9106-02b856550245" executionId="6dfcc872-ccd4-426a-b00e-647ce8d7e84c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="262cc163-403a-3427-10c7-fe659a3b5236" executionId="c9e5004b-fd0f-475c-82dc-f4ea23a7085c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9eefd3b9-872e-d362-a565-ad2c08f87bc3" executionId="6f4636cd-f078-49e2-82ea-b16817a9f477" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="be08730d-7d0f-e8c5-0750-d5a826172b1b" executionId="eaf72c2c-9277-4e1d-84a7-5fc4f7530b90" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fd188a01-9c12-34d3-95c2-148974b45edb" executionId="f7ebdd6d-2299-4a2c-a72c-228d2b471f07" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="71b8b00c-42ac-9de1-10b5-3167a9ec18c5" executionId="861764ed-e06e-4b45-9fb9-50840e2ed4a4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="deb34f48-dad7-0353-9e43-b1c5cc139f14" executionId="4674625c-1346-4888-8e06-d9928716e551" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6be081f2-c6e7-d412-39eb-fe90568f52d3" executionId="685b082d-25a7-46fb-a957-907452351d80" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ce6cf9d1-cd10-ef87-b596-769a97a0553b" executionId="42b593c8-e380-477b-8e1d-62d333590559" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e232b2a9-e115-39d2-3465-85916a215809" executionId="727e35b3-d350-4397-92e3-0c3409871b74" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ae384ae0-02b3-0dd3-fd2e-842717ea14b0" executionId="361de2f3-cd6d-477e-8527-40c8ec7b77fb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f2a4c671-5cec-b2e6-29b5-d1eda1e702fa" executionId="32a90738-b888-4192-bf54-9574e55b107b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1561bc0d-b356-eef7-41a1-5ccc6added08" executionId="bb4a1578-4203-4dcf-93ba-219f31b571a9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0337aea6-c604-b00d-198c-0c215a080436" executionId="c8d720af-12af-4109-9334-ff83570fc09d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e338ed8f-6e41-dc55-a16e-f4bd75754932" executionId="0dc2f01f-de22-41db-932c-58d99629808d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="de1cab8b-aec2-cf38-8e18-19b4e822e8a0" executionId="227bab17-96af-481f-a3ab-32adc1b6f86b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3e40ea4d-99dd-dad0-2563-a5a76f06ba83" executionId="d0b3e28a-0f39-4f6d-bec0-094be17e089c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="862edd37-0ba8-d76e-e795-15ba25176135" executionId="ba573430-29a2-49a3-9351-5bdc0a97eb28" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="98cabea3-7ff9-360f-8ba2-f8a8b55ea067" executionId="aa1e9ab3-d715-41e0-a5c8-1d5829bf3d25" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="11856cd0-c301-7339-4f7e-d2aa1e8ade04" executionId="1eef3a60-0dc9-4b12-a171-88d37b283d49" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f8e37ac0-1bbd-bbf4-2548-40d7dd5b08d7" executionId="babb3180-259d-467e-8992-49b5bed6576a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b7c92174-4d63-19d2-7418-a1208a3ea9e2" executionId="23635b7e-b57a-4cc3-904f-9e8793d84922" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="32" executed="24" passed="24" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.8.2+699d445a1a (64-bit .NET 8.0.20)
+[xUnit.net 00:00:00.09]   Discovering: Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration
+[xUnit.net 00:00:00.11]   Discovered:  Kiwibank.Payments.PaymentsOrchestrator.Testings.Integration
+Test 'POrchTransfer_Tmv_To_Tmv_Successful' was skipped in the test run.
+Test 'POrchTransfer_TMVtoTMV_Negative_ADPS_Response_409' was skipped in the test run.
+Test 'POrchTransfer_TMVtoTMV_Valid_Payer_Particulars_Return_Success (()+$*!;-/?:,201,)' was skipped in the test run.
+Test 'POrchTransfer_TMVtoTMV_Valid_Payer_Particulars_Return_Success (=@#_%,.,201,)' was skipped in the test run.
+Test 'POrchTransfer_TMV_To_Ultracs_Negative_ADPS_Response_409' was skipped in the test run.
+Test 'POrchTransfer_UltracsToTMV_Negative_Insufficient_Funds' was skipped in the test run.
+Test 'POrchTransfer_UltracsToTMV_Negative_Frozen_Debit_Account' was skipped in the test run.
+Test 'POrchTransfer_UltracsToTMV_Negative_Closed_Debit_Account' was skipped in the test run.
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>
