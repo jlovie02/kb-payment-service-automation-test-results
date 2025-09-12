@@ -10,6 +10,15 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+# ACCEPT region automation test results
+- task: PublishTestResults@2
+  displayName: 'Publish Test Results PORCH-accept.trx'
+  inputs:
+    testResultsFormat: VSTest
+    testResultsFiles: 'PORCH-accept*.trx'
+    testRunTitle: 'POrch Test Results from accept region'
+
+    # INTEGRATE region automation test results
 - task: PublishTestResults@2
   displayName: 'Publish Test Results PORCH-integrate.trx'
   inputs:
