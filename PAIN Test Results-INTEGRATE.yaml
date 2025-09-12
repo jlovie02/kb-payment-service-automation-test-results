@@ -1,0 +1,19 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+    # INTEGRATE region automation test results
+- task: PublishTestResults@2
+  displayName: 'Publish Test Results PAIN-integrate.trx'
+  inputs:
+    testResultsFormat: VSTest
+    testResultsFiles: 'PAIN-integrate*.trx'
+    testRunTitle: 'PAIN Test Results from integrate region'
