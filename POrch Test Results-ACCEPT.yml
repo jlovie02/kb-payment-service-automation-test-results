@@ -15,5 +15,5 @@ steps:
   displayName: 'Publish Test Results PORCH-accept.trx'
   inputs:
     testResultsFormat: VSTest
-    testResultsFiles: 'PORCH-accept*.trx'
+    testResultsFiles: 'POrch-accept*.trx'
     testRunTitle: 'POrch Test Results from accept region'

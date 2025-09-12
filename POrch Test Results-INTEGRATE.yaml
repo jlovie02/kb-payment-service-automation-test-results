@@ -15,5 +15,5 @@ steps:
   displayName: 'Publish Test Results PORCH-integrate.trx'
   inputs:
     testResultsFormat: VSTest
-    testResultsFiles: 'PORCH-integrate*.trx'
+    testResultsFiles: 'POrch-integrate*.trx'
     testRunTitle: 'POrch Test Results from integrate region'
