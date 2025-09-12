@@ -16,4 +16,4 @@ steps:
   inputs:
     testResultsFormat: VSTest
     testResultsFiles: 'PAIN-accept*.trx'
-    testRunTitle: 'POrch Test Results from accept region'
+    testRunTitle: 'PAIN Test Results from accept region'
