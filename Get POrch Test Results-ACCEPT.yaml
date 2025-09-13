@@ -20,10 +20,24 @@ steps:
   displayName: 'Check and Install AWS CLI'
 
 - script: |
+    echo "Validating AWS credentials and region..."
+
+    if [ -z "$AWS_ACCESS_KEY_ID" ] || [ -z "$AWS_SECRET_ACCESS_KEY" ] || [ -z "$AWS_REGION" ]; then
+      echo "❌ Missing AWS credentials or region. Please check variable group."
+      exit 1
+    fi
+
     echo "Configuring AWS CLI..."
-    aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
-    aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-    aws configure set region $AWS_REGION
+    aws configure set aws_access_key_id "$AWS_ACCESS_KEY_ID"
+    aws configure set aws_secret_access_key "$AWS_SECRET_ACCESS_KEY"
+    aws configure set region "$AWS_REGION"
+  displayName: 'Configure AWS CLI'
+  env:
+    AWS_ACCESS_KEY_ID: $(AWS_ACCESS_KEY_ID)
+    AWS_SECRET_ACCESS_KEY: $(AWS_SECRET_ACCESS_KEY)
+    AWS_REGION: $(AWS_REGION)
+
+- script: |
     echo "Finding file in S3 matching mask..."
     FILE=$(aws s3 ls $S3_PREFIX --recursive | awk '{print $4}' | grep "$FILE_MASK" | head -n 1)
 
