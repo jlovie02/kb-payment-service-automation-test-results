@@ -1,4 +1,3 @@
-
 trigger: none  # Manual trigger only
 
 pool:
@@ -9,18 +8,22 @@ variables:
 
 steps:
 - script: |
-    echo "Installing AWS CLI..."
-    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-    unzip awscliv2.zip
-    sudo ./aws/install
-  displayName: 'Install AWS CLI'
+    echo "Checking for AWS CLI..."
+    if command -v aws &> /dev/null; then
+      echo "AWS CLI is already installed. Skipping installation."
+    else
+      echo "AWS CLI not found. Installing..."
+      curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+      unzip -o awscliv2.zip
+      sudo ./aws/install
+    fi
+  displayName: 'Check and Install AWS CLI'
 
 - script: |
     echo "Configuring AWS CLI..."
     aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
     aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
     aws configure set region $AWS_REGION
-
     echo "Finding file in S3 matching mask..."
     FILE=$(aws s3 ls $S3_PREFIX --recursive | awk '{print $4}' | grep "$FILE_MASK" | head -n 1)
 
