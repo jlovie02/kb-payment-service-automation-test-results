@@ -4,7 +4,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  - group: AWSSecrets
+- group: AWSSecrets
 
   S3_BUCKET: testoutput
   S3_PREFIX: s3://778173892410-pipeline-artifacts/[pipeline-cache]/porch/execution/testoutput/
