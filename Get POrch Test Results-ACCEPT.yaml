@@ -1,16 +1,11 @@
+
 trigger: none  # Manual trigger only
 
 pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-- group: AWSSecrets
-
-  S3_BUCKET: testoutput
-  S3_PREFIX: s3://778173892410-pipeline-artifacts/[pipeline-cache]/porch/execution/testoutput/
-  FILE_MASK: "*accept*.trx"
-  RENAMED_FILE: POrch-Test-Results-ACCEPT.trx
-  GITHUB_REPO: https://github.com/jlovie02/Service_Test_Results_ACCEPT_INTEGRATE
+- group: AWSSecrets  # Only reference the variable group here
 
 steps:
 - script: |
@@ -27,7 +22,7 @@ steps:
     aws configure set region $AWS_REGION
 
     echo "Finding file in S3 matching mask..."
-    FILE=$(aws s3 ls s3://$S3_BUCKET/$S3_PREFIX --recursive | awk '{print $4}' | grep "$FILE_MASK" | head -n 1)
+    FILE=$(aws s3 ls $S3_PREFIX --recursive | awk '{print $4}' | grep "$FILE_MASK" | head -n 1)
 
     if [ -z "$FILE" ]; then
       echo "No file found matching mask: $FILE_MASK"
@@ -37,15 +32,22 @@ steps:
     echo "Downloading $FILE from S3..."
     aws s3 cp s3://$S3_BUCKET/$FILE $RENAMED_FILE
   displayName: 'Download and rename file from S3'
+  env:
+    S3_BUCKET: testoutput
+    S3_PREFIX: s3://778173892410-pipeline-artifacts/[pipeline-cache]/porch/execution/testoutput/
+    FILE_MASK: "*accept*.trx"
+    RENAMED_FILE: POrch-Test-Results-ACCEPT.trx
 
 - script: |
     echo "Cloning GitHub repo..."
     git config --global user.name "Azure DevOps Bot"
     git config --global user.email "ado-bot@example.com"
-    git clone https://$GITHUB_TOKEN@github.com/yourusername/yourrepo.git repo
+    git clone https://$GITHUB_TOKEN@github.com/jlovie02/Service_Test_Results_ACCEPT_INTEGRATE.git repo
     cp $RENAMED_FILE repo/
     cd repo
     git add .
     git commit -m "Add renamed file from S3"
     git push origin main
   displayName: 'Push file to GitHub'
+  env:
+    RENAMED_FILE: POrch-Test-Results-ACCEPT.trx
