@@ -23,7 +23,7 @@ steps:
     echo "Validating AWS credentials and region..."
 
     if [ -z "$AWS_ACCESS_KEY_ID" ] || [ -z "$AWS_SECRET_ACCESS_KEY" ] || [ -z "$AWS_REGION" ]; then
-      echo "❌ Missing AWS credentials or region. Please check variable group."
+      echo "Missing AWS credentials or region. Please check variable group."
       exit 1
     fi
 
