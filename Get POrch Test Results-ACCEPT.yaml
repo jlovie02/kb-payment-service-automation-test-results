@@ -23,7 +23,7 @@ steps:
     echo "Validating AWS credentials and region..."
 
     if [ -z "$AWS_ACCESS_KEY_ID" ] || [ -z "$AWS_SECRET_ACCESS_KEY" ] || [ -z "$AWS_REGION" ]; then
-      echo "❌ Missing AWS credentials or region. Please check variable group."
+      echo "Missing AWS credentials or region. Please check variable group."
       exit 1
     fi
 
@@ -55,7 +55,7 @@ steps:
     echo "Downloading $FILE from S3..."
     aws s3 cp "s3://$S3_BUCKET/$FILE" "$RENAMED_FILE"
   displayName: 'Download and rename file from S3'
-env:
+  env:
   S3_BUCKET: "778173892410-pipeline-artifacts"
   S3_PREFIX: "[pipeline-cache]/porch/execution/testoutput/"
   FILE_MASK: "*accept*.trx"
