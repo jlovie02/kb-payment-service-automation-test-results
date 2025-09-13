@@ -1,19 +1,16 @@
-
 trigger: none  # Manual trigger only
 
 pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  AWS_ACCESS_KEY_ID: $(AWS_ACCESS_KEY_ID)
-  AWS_SECRET_ACCESS_KEY: $(AWS_SECRET_ACCESS_KEY)
-  AWS_REGION: $(AWS_REGION)
+  - group: AWSSecrets
+
   S3_BUCKET: testoutput
   S3_PREFIX: s3://778173892410-pipeline-artifacts/[pipeline-cache]/porch/execution/testoutput/
-  FILE_MASK: "*accept*.trx"  # Adjust this to match your filename pattern
+  FILE_MASK: "*accept*.trx"
   RENAMED_FILE: POrch-Test-Results-ACCEPT.trx
   GITHUB_REPO: https://github.com/jlovie02/Service_Test_Results_ACCEPT_INTEGRATE
-  GITHUB_TOKEN: $(GITHUB_TOKEN)
 
 steps:
 - script: |
