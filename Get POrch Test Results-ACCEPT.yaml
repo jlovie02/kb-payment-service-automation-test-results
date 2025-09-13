@@ -56,8 +56,8 @@ steps:
     aws s3 cp "s3://$S3_BUCKET/$FILE" "$RENAMED_FILE"
   displayName: 'Download and rename file from S3'
   env:
-    S3_BUCKET: "778173892410-pipeline-artifacts"
-    S3_PREFIX: "[pipeline-cache]/porch/execution/testoutput/"
+    S3_BUCKET: "778173892410-pipeline-artifacts/[pipeline-cache]"
+    S3_PREFIX: "porch/execution/testoutput/"
     FILE_MASK: "*accept*.trx"
     RENAMED_FILE: "POrch-Test-Results-ACCEPT.trx"
 
